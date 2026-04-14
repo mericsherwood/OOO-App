@@ -10,761 +10,189 @@
 <title>Triple-O — Player Character Emulator</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<!-- Icons -->
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%232a1f14'/><text x='50' y='72' text-anchor='middle' font-size='52' font-family='sans-serif' font-weight='bold' fill='%23f5ead6'>O³</text></svg>">
-<link rel="apple-touch-icon" href="data:image/png;base64,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">
 <style>
-:root {
-  --parchment: #f5ead6;
-  --parchment-light: #faf4e8;
-  --ink: #2a1f14;
-  --accent: #e8a0b4;
-  --accent-light: #f5d5df;
-  --muted: #8a7a6a;
-  --danger: #c44040;
-  --font-display: 'Bebas Neue', 'Impact', sans-serif;
-  --font-body: 'Crimson Text', 'Georgia', serif;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { background: var(--ink); }
-body {
-  max-width: 520px; margin: 0 auto; min-height: 100vh; min-height: 100dvh;
-  background: var(--parchment); color: var(--ink);
-  font-family: var(--font-body); font-size: 15px; line-height: 1.4;
-  border-left: 3px solid var(--ink); border-right: 3px solid var(--ink);
-  -webkit-font-smoothing: antialiased;
-}
-input, textarea, select, button { font-family: inherit; font-size: inherit; color: inherit; }
-input:focus, textarea:focus, select:focus { outline: 2px solid var(--accent); outline-offset: -2px; }
-button { -webkit-tap-highlight-color: transparent; }
-@keyframes fadeSlideIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
-@keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.08); } }
-@keyframes spinIn { from { transform:rotate(720deg) scale(0.3); } to { transform:rotate(0) scale(1); } }
-
-/* Header */
-.app-header { text-align:center; padding:20px 16px 14px; border-bottom:3px solid var(--ink); background:linear-gradient(180deg, var(--accent-light) 0%, var(--parchment) 100%); }
-.app-title { font-family:var(--font-display); font-size:32px; letter-spacing:3px; line-height:1; }
-.app-subtitle { font-family:var(--font-display); font-size:10px; text-transform:uppercase; letter-spacing:4px; color:var(--muted); margin-top:4px; }
-.app-odds { display:inline-flex; gap:12px; margin-top:10px; font-size:12px; color:var(--muted); }
-.app-odds .dot { color:var(--accent); }
-
-/* Tab bar */
-.tab-bar { display:flex; border-bottom:3px solid var(--ink); }
-.tab-btn { flex:1; padding:10px 4px; border:none; cursor:pointer; font-family:var(--font-display); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; transition:all 0.2s; background:transparent; color:var(--ink); border-bottom:3px solid var(--ink); }
-.tab-btn.active { background:var(--ink); color:var(--parchment); border-bottom:none; }
-
-/* Content */
-.content { padding:16px; padding-bottom:40px; }
-.hidden { display:none !important; }
-
-/* Sub-tabs */
-.sub-tabs { display:flex; gap:6px; margin-bottom:14px; flex-wrap:wrap; }
-.sub-btn { padding:6px 14px; border:2px solid var(--ink); cursor:pointer; font-family:var(--font-body); font-size:12px; font-weight:400; background:transparent; color:var(--ink); border-radius:20px; transition:all 0.15s; }
-.sub-btn.active { background:var(--accent); font-weight:700; }
-
-/* Generic form elements */
-.field { margin-bottom:8px; }
-.field-label { font-family:var(--font-display); font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); display:block; margin-bottom:3px; }
-.field-input, .field-textarea { width:100%; padding:8px 10px; border:2px solid var(--ink); border-radius:4px; font-family:var(--font-body); font-size:14px; background:var(--parchment-light); color:var(--ink); }
-.field-textarea { resize:vertical; min-height:44px; }
-
-/* Buttons */
-.btn { padding:8px 16px; border:2px solid var(--ink); cursor:pointer; font-family:var(--font-display); font-size:13px; font-weight:700; border-radius:4px; transition:all 0.15s; text-transform:uppercase; letter-spacing:1px; }
-.btn:disabled { opacity:0.4; cursor:default; }
-.btn-primary { background:var(--accent); color:var(--ink); }
-.btn-dark { background:var(--ink); color:var(--parchment); }
-.btn-danger { background:var(--danger); color:var(--parchment); }
-.btn-link { background:none; border:2px dashed var(--muted); border-radius:4px; padding:4px 12px; cursor:pointer; font-family:var(--font-body); font-size:12px; color:var(--muted); }
-.btn-link-danger { background:none; border:2px dashed var(--danger); border-radius:4px; padding:4px 12px; cursor:pointer; font-family:var(--font-body); font-size:12px; color:var(--danger); }
-
-/* Cards */
-.card { border:2px solid var(--ink); border-radius:6px; margin-bottom:12px; background:var(--parchment-light); overflow:hidden; }
-.card-header { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; cursor:pointer; transition:background 0.15s; }
-.card-header.expanded { background:var(--accent); }
-.card-header .name { font-family:var(--font-display); font-size:16px; font-weight:700; }
-.card-header .meta { font-size:11px; color:var(--muted); font-family:var(--font-body); }
-.card-header .arrow { font-size:18px; transition:transform 0.2s; display:inline-block; }
-.card-header.expanded .arrow { transform:rotate(180deg); }
-.card-body { padding:14px; border-top:2px solid var(--ink); }
-
-/* Trait row */
-.trait-row { display:flex; gap:4px; margin-bottom:4px; align-items:center; }
-.trait-status { width:30px; height:30px; border:2px solid var(--ink); border-radius:4px; cursor:pointer; font-size:16px; display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--ink); flex-shrink:0; transition:background 0.15s; }
-.trait-status[data-status="prevalent"] { background:var(--accent); }
-.trait-status[data-status="temporary"] { background:var(--accent-light); }
-.trait-status[data-status="default"], .trait-status[data-status="empty"] { background:var(--parchment); }
-.trait-input { flex:1; padding:5px 8px; border:2px solid var(--ink); border-radius:4px; font-family:var(--font-body); font-size:13px; background:var(--parchment); color:var(--ink); min-width:0; }
-.trait-cat { width:46px; padding:5px 2px; border:2px solid var(--ink); border-radius:4px; font-family:var(--font-display); font-size:12px; background:var(--parchment); color:var(--ink); text-align:center; text-transform:uppercase; letter-spacing:1px; }
-.trait-remove { background:none; border:none; cursor:pointer; font-size:14px; color:var(--danger); font-weight:700; padding:0 4px; }
-
-/* Boxes */
-.box { background:var(--parchment-light); border:2px solid var(--ink); border-radius:6px; padding:12px; margin-bottom:12px; }
-.box-inner { background:var(--parchment); border:2px solid var(--ink); border-radius:6px; padding:12px; margin-bottom:12px; }
-.box-title { font-family:var(--font-display); font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); margin-bottom:8px; }
-
-/* Result display */
-.result-box { margin-top:16px; padding:16px; border:3px solid var(--ink); border-radius:8px; background:var(--accent-light); text-align:center; animation:fadeSlideIn 0.3s ease-out; }
-.result-dice { display:inline-flex; align-items:center; justify-content:center; width:56px; height:56px; border-radius:6px; background:var(--ink); color:var(--parchment); font-family:var(--font-display); font-size:28px; font-weight:700; box-shadow:2px 3px 0 rgba(0,0,0,0.2); animation:spinIn 0.4s cubic-bezier(.2,1,.3,1); }
-.result-outcome { font-family:var(--font-display); font-size:22px; font-weight:700; color:var(--ink); margin-top:8px; }
-.result-pick { font-family:var(--font-body); font-size:14px; color:var(--muted); margin-top:4px; }
-.result-doubles { font-family:var(--font-display); font-size:18px; font-weight:700; color:var(--danger); margin-top:6px; animation:pulse 0.6s ease-in-out 2; }
-.result-context { font-family:var(--font-body); font-size:12px; color:var(--muted); margin-top:8px; }
-
-/* Tables tab */
-.combo-pills { display:flex; flex-wrap:wrap; gap:6px; }
-.combo-pill { padding:6px 12px; border:2px solid var(--muted); border-radius:20px; cursor:pointer; font-family:var(--font-body); font-size:12px; font-weight:400; background:transparent; color:var(--ink); transition:all 0.15s; }
-.combo-pill.selected { border-color:var(--ink); background:var(--accent); font-weight:700; }
-.table-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
-.table-grid-btn { padding:10px 8px; border:2px solid var(--ink); border-radius:6px; cursor:pointer; font-family:var(--font-display); font-size:13px; font-weight:700; background:var(--parchment); color:var(--ink); transition:background 0.15s; text-align:center; }
-.table-grid-btn:hover, .table-grid-btn:active { background:var(--accent); }
-.table-result-row { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
-.table-result-row:last-child { margin-bottom:0; }
-.table-result-name { font-family:var(--font-display); font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); }
-.table-result-val { font-family:var(--font-display); font-size:18px; font-weight:700; color:var(--ink); }
-
-/* Journal */
-.journal-entry { padding:10px; margin-bottom:6px; border:2px solid var(--ink); border-radius:6px; animation:fadeSlideIn 0.25s ease-out; }
-.journal-entry:nth-child(odd) { background:var(--parchment-light); }
-.journal-entry:nth-child(even) { background:var(--parchment); }
-.journal-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:4px; }
-.journal-type { font-family:var(--font-display); font-size:12px; font-weight:700; color:var(--ink); }
-.journal-time { font-family:var(--font-body); font-size:11px; color:var(--muted); }
-.journal-char { font-family:var(--font-body); font-size:12px; color:var(--muted); margin-bottom:2px; }
-.journal-question { font-family:var(--font-body); font-size:12px; font-style:italic; color:var(--ink); margin-bottom:2px; }
-.journal-detail { font-family:var(--font-body); font-size:13px; color:var(--ink); }
-.journal-ooo { font-family:var(--font-body); font-size:11px; color:var(--muted); margin-top:4px; }
-.journal-note { font-family:var(--font-display); font-size:12px; color:var(--danger); margin-top:4px; }
-.journal-empty { text-align:center; padding:40px; color:var(--muted); font-style:italic; }
-
-/* Checkbox & radio styling */
-.check-label { font-family:var(--font-body); font-size:13px; cursor:pointer; display:inline-flex; align-items:center; gap:5px; }
-.check-label-sm { font-family:var(--font-body); font-size:12px; color:var(--muted); cursor:pointer; display:inline-flex; align-items:center; gap:4px; }
-
-/* Group action rows */
-.ga-row { display:flex; gap:6px; margin-bottom:6px; align-items:flex-end; }
-.ga-row .field { flex:1; margin-bottom:0; }
-.ga-who { padding:8px 6px; border:2px solid var(--ink); border-radius:4px; font-family:var(--font-body); font-size:12px; background:var(--parchment-light); width:100px; }
-
-/* Flex helpers */
-.flex-between { display:flex; justify-content:space-between; align-items:center; }
-.flex-gap { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-.flex-gap-sm { display:flex; gap:6px; align-items:center; }
-.mt-sm { margin-top:8px; }
-.mt-md { margin-top:12px; }
-.mb-sm { margin-bottom:8px; }
-.mb-md { margin-bottom:12px; }
-.w-full { width:100%; }
+:root{--parchment:#f5ead6;--parchment-light:#faf4e8;--ink:#2a1f14;--accent:#e8a0b4;--accent-light:#f5d5df;--muted:#8a7a6a;--danger:#c44040;--font-display:'Bebas Neue','Impact',sans-serif;--font-body:'Crimson Text','Georgia',serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--ink)}
+body{max-width:520px;margin:0 auto;min-height:100vh;min-height:100dvh;background:var(--parchment);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.4;border-left:3px solid var(--ink);border-right:3px solid var(--ink);-webkit-font-smoothing:antialiased}
+input,textarea,select,button{font-family:inherit;font-size:inherit;color:inherit}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--accent);outline-offset:-2px}
+button{-webkit-tap-highlight-color:transparent}
+@keyframes fadeSlideIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes spinIn{from{transform:rotate(720deg) scale(0.3)}to{transform:rotate(0) scale(1)}}
+.app-header{text-align:center;padding:20px 16px 14px;border-bottom:3px solid var(--ink);background:linear-gradient(180deg,var(--accent-light) 0%,var(--parchment) 100%);position:relative}
+.app-title{font-family:var(--font-display);font-size:32px;letter-spacing:3px;line-height:1}
+.app-subtitle{font-family:var(--font-display);font-size:10px;text-transform:uppercase;letter-spacing:4px;color:var(--muted);margin-top:4px}
+.app-campaign-name{font-family:var(--font-body);font-size:12px;color:var(--ink);margin-top:6px;font-style:italic}
+.app-odds{display:inline-flex;gap:12px;margin-top:6px;font-size:12px;color:var(--muted)}
+.app-odds .dot{color:var(--accent)}
+.gear-btn{position:absolute;top:16px;right:12px;background:none;border:none;cursor:pointer;font-size:24px;color:var(--ink);padding:4px;line-height:1}
+.tab-bar{display:flex;border-bottom:3px solid var(--ink)}
+.tab-btn{flex:1;padding:10px 4px;border:none;cursor:pointer;font-family:var(--font-display);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;transition:all 0.2s;background:transparent;color:var(--ink);border-bottom:3px solid var(--ink)}
+.tab-btn.active{background:var(--ink);color:var(--parchment);border-bottom:none}
+.content{padding:16px;padding-bottom:40px}
+.hidden{display:none !important}
+.overlay-bg{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.4);z-index:100;opacity:0;pointer-events:none;transition:opacity 0.2s}
+.overlay-bg.show{opacity:1;pointer-events:auto}
+.slide-panel{position:fixed;top:0;right:0;bottom:0;width:min(340px,85vw);background:var(--parchment);border-left:3px solid var(--ink);z-index:101;overflow-y:auto;-webkit-overflow-scrolling:touch;transform:translateX(100%);transition:transform 0.25s ease-out;padding:0}
+.slide-panel.show{transform:translateX(0)}
+.panel-header{display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:3px solid var(--ink);background:var(--accent-light)}
+.panel-header h2{font-family:var(--font-display);font-size:20px;letter-spacing:2px;margin:0}
+.panel-close{background:none;border:none;cursor:pointer;font-size:24px;color:var(--ink);padding:0;line-height:1}
+.panel-section{padding:16px;border-bottom:2px solid var(--accent-light)}
+.panel-section:last-child{border-bottom:none}
+.panel-section-title{font-family:var(--font-display);font-size:14px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:10px}
+.campaign-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border:2px solid var(--ink);border-radius:6px;margin-bottom:6px;cursor:pointer;transition:background 0.15s;background:var(--parchment-light)}
+.campaign-item.active{background:var(--accent);font-weight:700}
+.campaign-item .camp-name{flex:1;font-family:var(--font-body);font-size:14px}
+.campaign-item .camp-meta{font-size:11px;color:var(--muted);font-family:var(--font-body)}
+.campaign-actions{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.sub-tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.sub-btn{padding:6px 14px;border:2px solid var(--ink);cursor:pointer;font-family:var(--font-body);font-size:12px;font-weight:400;background:transparent;color:var(--ink);border-radius:20px;transition:all 0.15s}
+.sub-btn.active{background:var(--accent);font-weight:700}
+.field{margin-bottom:8px}
+.field-label{font-family:var(--font-display);font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);display:block;margin-bottom:3px}
+.field-input,.field-textarea{width:100%;padding:8px 10px;border:2px solid var(--ink);border-radius:4px;font-family:var(--font-body);font-size:14px;background:var(--parchment-light);color:var(--ink)}
+.field-textarea{resize:vertical;min-height:44px}
+.btn{padding:8px 16px;border:2px solid var(--ink);cursor:pointer;font-family:var(--font-display);font-size:13px;font-weight:700;border-radius:4px;transition:all 0.15s;text-transform:uppercase;letter-spacing:1px}
+.btn:disabled{opacity:0.4;cursor:default}
+.btn-primary{background:var(--accent);color:var(--ink)}
+.btn-dark{background:var(--ink);color:var(--parchment)}
+.btn-danger{background:var(--danger);color:var(--parchment)}
+.btn-sm{font-size:11px;padding:5px 10px}
+.btn-link{background:none;border:2px dashed var(--muted);border-radius:4px;padding:4px 12px;cursor:pointer;font-family:var(--font-body);font-size:12px;color:var(--muted)}
+.btn-link-danger{background:none;border:2px dashed var(--danger);border-radius:4px;padding:4px 12px;cursor:pointer;font-family:var(--font-body);font-size:12px;color:var(--danger)}
+.card{border:2px solid var(--ink);border-radius:6px;margin-bottom:12px;background:var(--parchment-light);overflow:hidden}
+.card-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;cursor:pointer;transition:background 0.15s}
+.card-header.expanded{background:var(--accent)}
+.card-header .name{font-family:var(--font-display);font-size:16px;font-weight:700}
+.card-header .meta{font-size:11px;color:var(--muted);font-family:var(--font-body)}
+.card-header .arrow{font-size:18px;transition:transform 0.2s;display:inline-block}
+.card-header.expanded .arrow{transform:rotate(180deg)}
+.card-body{padding:14px;border-top:2px solid var(--ink)}
+.trait-row{display:flex;gap:4px;margin-bottom:4px;align-items:center}
+.trait-status{width:30px;height:30px;border:2px solid var(--ink);border-radius:4px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--ink);flex-shrink:0;transition:background 0.15s}
+.trait-status[data-status="prevalent"]{background:var(--accent)}
+.trait-status[data-status="temporary"]{background:var(--accent-light)}
+.trait-status[data-status="default"],.trait-status[data-status="empty"]{background:var(--parchment)}
+.trait-input{flex:1;padding:5px 8px;border:2px solid var(--ink);border-radius:4px;font-family:var(--font-body);font-size:13px;background:var(--parchment);color:var(--ink);min-width:0}
+.trait-cat{width:46px;padding:5px 2px;border:2px solid var(--ink);border-radius:4px;font-family:var(--font-display);font-size:12px;background:var(--parchment);color:var(--ink);text-align:center;text-transform:uppercase;letter-spacing:1px}
+.trait-remove{background:none;border:none;cursor:pointer;font-size:14px;color:var(--danger);font-weight:700;padding:0 4px}
+.box{background:var(--parchment-light);border:2px solid var(--ink);border-radius:6px;padding:12px;margin-bottom:12px}
+.box-inner{background:var(--parchment);border:2px solid var(--ink);border-radius:6px;padding:12px;margin-bottom:12px}
+.box-title{font-family:var(--font-display);font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px}
+.result-box{margin-top:16px;padding:16px;border:3px solid var(--ink);border-radius:8px;background:var(--accent-light);text-align:center;animation:fadeSlideIn 0.3s ease-out}
+.result-dice{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:6px;background:var(--ink);color:var(--parchment);font-family:var(--font-display);font-size:28px;font-weight:700;box-shadow:2px 3px 0 rgba(0,0,0,0.2);animation:spinIn 0.4s cubic-bezier(.2,1,.3,1)}
+.result-outcome{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--ink);margin-top:8px}
+.result-pick{font-family:var(--font-body);font-size:14px;color:var(--muted);margin-top:4px}
+.result-doubles{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--danger);margin-top:6px;animation:pulse 0.6s ease-in-out 2}
+.result-context{font-family:var(--font-body);font-size:12px;color:var(--muted);margin-top:8px}
+.combo-pills{display:flex;flex-wrap:wrap;gap:6px}
+.combo-pill{padding:6px 12px;border:2px solid var(--muted);border-radius:20px;cursor:pointer;font-family:var(--font-body);font-size:12px;font-weight:400;background:transparent;color:var(--ink);transition:all 0.15s}
+.combo-pill.selected{border-color:var(--ink);background:var(--accent);font-weight:700}
+.table-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.table-grid-btn{padding:10px 8px;border:2px solid var(--ink);border-radius:6px;cursor:pointer;font-family:var(--font-display);font-size:13px;font-weight:700;background:var(--parchment);color:var(--ink);transition:background 0.15s;text-align:center}
+.table-grid-btn:hover,.table-grid-btn:active{background:var(--accent)}
+.table-result-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.table-result-row:last-child{margin-bottom:0}
+.table-result-name{font-family:var(--font-display);font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.table-result-val{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--ink)}
+.journal-entry{padding:10px;margin-bottom:6px;border:2px solid var(--ink);border-radius:6px;animation:fadeSlideIn 0.25s ease-out}
+.journal-entry:nth-child(odd){background:var(--parchment-light)}
+.journal-entry:nth-child(even){background:var(--parchment)}
+.journal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.journal-type{font-family:var(--font-display);font-size:12px;font-weight:700}
+.journal-time{font-family:var(--font-body);font-size:11px;color:var(--muted)}
+.journal-char{font-family:var(--font-body);font-size:12px;color:var(--muted);margin-bottom:2px}
+.journal-question{font-family:var(--font-body);font-size:12px;font-style:italic;margin-bottom:2px}
+.journal-detail{font-family:var(--font-body);font-size:13px}
+.journal-ooo{font-family:var(--font-body);font-size:11px;color:var(--muted);margin-top:4px}
+.journal-note{font-family:var(--font-display);font-size:12px;color:var(--danger);margin-top:4px}
+.journal-empty{text-align:center;padding:40px;color:var(--muted);font-style:italic}
+.about-text{font-family:var(--font-body);font-size:13px;line-height:1.5}
+.about-text a{color:var(--danger);text-decoration:underline}
+.about-text strong{font-weight:700}
+.about-divider{border:none;border-top:1px solid var(--accent);margin:12px 0}
+.flex-between{display:flex;justify-content:space-between;align-items:center}
+.flex-gap{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.flex-gap-sm{display:flex;gap:6px;align-items:center}
+.mt-sm{margin-top:8px}.mt-md{margin-top:12px}.mb-sm{margin-bottom:8px}.mb-md{margin-bottom:12px}.w-full{width:100%}
+.check-label{font-family:var(--font-body);font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+.check-label-sm{font-family:var(--font-body);font-size:12px;color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+.ga-row{display:flex;gap:6px;margin-bottom:6px;align-items:flex-end}
+.ga-row .field{flex:1;margin-bottom:0}
+.ga-who{padding:8px 6px;border:2px solid var(--ink);border-radius:4px;font-family:var(--font-body);font-size:12px;background:var(--parchment-light);width:100px}
 </style>
 </head>
 <body>
-
-<div class="app-header">
-  <div class="app-title">TRIPLE-O</div>
-  <div class="app-subtitle">Player Character Emulator</div>
-  <div class="app-odds">
-    <span>4–6 Obvious</span><span class="dot">·</span>
-    <span>2–3 Option</span><span class="dot">·</span>
-    <span>1 Odd</span>
-  </div>
+<div class="overlay-bg" id="overlay-bg" onclick="closePanel()"></div>
+<div class="slide-panel" id="slide-panel">
+<div class="panel-header"><h2>Settings</h2><button class="panel-close" onclick="closePanel()">✕</button></div>
+<div class="panel-section"><div class="panel-section-title">Campaigns</div><div id="campaign-list"></div><div class="campaign-actions"><button class="btn btn-dark btn-sm" onclick="newCampaign()">+ New</button><button class="btn btn-primary btn-sm" onclick="renameCampaign()">Rename</button><button class="btn btn-danger btn-sm" onclick="deleteCampaign()">Delete</button></div></div>
+<div class="panel-section"><div class="panel-section-title">Export / Import</div><div class="flex-gap"><button class="btn btn-dark btn-sm" onclick="exportData()">Export JSON</button><button class="btn btn-primary btn-sm" onclick="document.getElementById('import-file').click()">Import JSON</button><input type="file" id="import-file" accept=".json" style="display:none" onchange="importData(event)"></div><div style="font-family:var(--font-body);font-size:11px;color:var(--muted);margin-top:8px">Export saves all campaigns. Import merges with existing data.</div></div>
+<div class="panel-section"><div class="panel-section-title">About</div><div class="about-text"><strong>Triple-O: The Player Character Emulator</strong> was written and designed by <strong>Cezar Capacle</strong>, published by <strong>Critical Kit Ltd</strong>. The original work is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.<hr class="about-divider">Purchase the original zine at <a href="https://capacle.itch.io/triple-o-zine" target="_blank" rel="noopener">capacle.itch.io/triple-o-zine</a>.<hr class="about-divider">This web application is an unofficial digital companion tool implementing the Triple-O system. It is not affiliated with or endorsed by Cezar Capacle or Critical Kit Ltd.<hr class="about-divider">App designed by <strong>M. Eric Sherwood</strong>.<br>Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</div></div>
 </div>
-
-<div class="tab-bar">
-  <button class="tab-btn active" data-tab="characters" onclick="switchTab('characters')">Characters</button>
-  <button class="tab-btn" data-tab="gameplay" onclick="switchTab('gameplay')">Gameplay</button>
-  <button class="tab-btn" data-tab="tables" onclick="switchTab('tables')">Tables</button>
-  <button class="tab-btn" data-tab="journal" onclick="switchTab('journal')">Journal</button>
-</div>
-
-<!-- ═══ CHARACTERS TAB ═══ -->
-<div class="content" id="tab-characters">
-  <!-- Party Traits -->
-  <div class="box">
-    <div class="box-title">⚔ Party Traits</div>
-    <div id="party-traits-list"></div>
-    <button class="btn-link mt-sm" onclick="addPartyTrait()">+ Add Party Trait</button>
-  </div>
-  <div id="characters-list"></div>
-  <button class="btn btn-dark w-full mt-sm" onclick="addCharacter()">+ New Character</button>
-</div>
-
-<!-- ═══ GAMEPLAY TAB ═══ -->
-<div class="content hidden" id="tab-gameplay">
-  <div class="sub-tabs">
-    <button class="sub-btn active" data-sub="actions" onclick="switchSub('actions')">Actions</button>
-    <button class="sub-btn" data-sub="questions" onclick="switchSub('questions')">Questions</button>
-    <button class="sub-btn" data-sub="group" onclick="switchSub('group')">Group Actions</button>
-    <div style="margin-left:auto">
-      <label class="check-label-sm"><input type="checkbox" id="checks-mode" onchange="saveState()"> Checks Mode</label>
-    </div>
-  </div>
-
-  <!-- Actions & Questions -->
-  <div id="sub-actions">
-    <div class="field">
-      <label class="field-label">Character</label>
-      <select class="field-input" id="gp-char-select" onchange="saveState()">
-        <option value="">Select a character...</option>
-      </select>
-    </div>
-    <div id="question-field" class="field hidden">
-      <label class="field-label">Question</label>
-      <input class="field-input" id="gp-question" placeholder="Would they consider...?" oninput="saveState()">
-    </div>
-    <div class="box-inner">
-      <div class="box-title" id="triple-o-label">Define Three Actions</div>
-      <div class="field">
-        <label class="field-label">4–6: The Obvious</label>
-        <input class="field-input" id="gp-obvious" placeholder="Most predictable action..." oninput="saveState()">
-      </div>
-      <div class="field">
-        <label class="field-label">2–3: The Option</label>
-        <input class="field-input" id="gp-option" placeholder="Alternative action..." oninput="saveState()">
-      </div>
-      <div class="field">
-        <label class="field-label">1: The Odd</label>
-        <input class="field-input" id="gp-odd" placeholder="Unusual action..." oninput="saveState()">
-      </div>
-    </div>
-    <div class="flex-gap mb-md">
-      <label class="check-label"><input type="checkbox" id="gp-doubledown"> Double-Down (2d6)</label>
-      <button class="btn btn-dark" id="gp-roll-btn" onclick="doTripleOCheck()">Roll Triple-O Check</button>
-    </div>
-  </div>
-
-  <!-- Group Actions -->
-  <div id="sub-group" class="hidden">
-    <div class="box-inner">
-      <div class="box-title">Three Courses of Action</div>
-      <div class="ga-row">
-        <div class="field"><label class="field-label">Course 1</label><input class="field-input" id="ga-1-text" placeholder="Proposed course of action..."></div>
-        <select class="ga-who" id="ga-1-who"><option value="">Who?</option></select>
-      </div>
-      <div class="ga-row">
-        <div class="field"><label class="field-label">Course 2</label><input class="field-input" id="ga-2-text" placeholder="Proposed course of action..."></div>
-        <select class="ga-who" id="ga-2-who"><option value="">Who?</option></select>
-      </div>
-      <div class="ga-row">
-        <div class="field"><label class="field-label">Course 3</label><input class="field-input" id="ga-3-text" placeholder="Proposed course of action..."></div>
-        <select class="ga-who" id="ga-3-who"><option value="">Who?</option></select>
-      </div>
-    </div>
-    <div class="flex-gap mb-md">
-      <label class="check-label"><input type="radio" name="ga-mode" value="manual" checked> Manual assign</label>
-      <label class="check-label"><input type="radio" name="ga-mode" value="roll"> Roll to rank</label>
-      <label class="check-label"><input type="checkbox" id="ga-doubledown"> Double-Down</label>
-    </div>
-    <button class="btn btn-dark" onclick="doGroupRoll()">Roll Group Triple-O</button>
-  </div>
-
-  <div id="gp-result"></div>
-</div>
-
-<!-- ═══ TABLES TAB ═══ -->
-<div class="content hidden" id="tab-tables">
-  <div class="sub-tabs">
-    <button class="sub-btn active" data-ttype="spark" onclick="switchTableType('spark')">Spark Tables</button>
-    <button class="sub-btn" data-ttype="specific" onclick="switchTableType('specific')">Specific Tables</button>
-  </div>
-  <div class="box">
-    <div class="box-title">Select 1–3 tables to combo roll (d66 each)</div>
-    <div class="combo-pills" id="combo-pills"></div>
-    <div class="mt-sm">
-      <button class="btn btn-dark" id="combo-roll-btn" onclick="rollCombo()" disabled>Roll (—)</button>
-    </div>
-  </div>
-  <div id="table-results"></div>
-  <div class="box-title">Quick Roll — tap any table</div>
-  <div class="table-grid" id="table-grid"></div>
-</div>
-
-<!-- ═══ JOURNAL TAB ═══ -->
-<div class="content hidden" id="tab-journal">
-  <div class="flex-between mb-md">
-    <span class="box-title" id="journal-count" style="margin-bottom:0">0 entries</span>
-    <button class="btn btn-danger" style="font-size:11px;padding:4px 10px" onclick="clearJournal()" id="journal-clear-btn" class="hidden">Clear Journal</button>
-  </div>
-  <div id="journal-list"><div class="journal-empty">No entries yet. Roll some dice!</div></div>
-</div>
-
+<div class="app-header"><button class="gear-btn" onclick="openPanel()" title="Settings">&#9881;</button><div class="app-title">TRIPLE-O</div><div class="app-subtitle">Player Character Emulator</div><div class="app-campaign-name" id="header-campaign"></div><div class="app-odds"><span>4–6 Obvious</span><span class="dot">·</span><span>2–3 Option</span><span class="dot">·</span><span>1 Odd</span></div></div>
+<div class="tab-bar"><button class="tab-btn active" data-tab="characters" onclick="switchTab('characters')">Characters</button><button class="tab-btn" data-tab="gameplay" onclick="switchTab('gameplay')">Gameplay</button><button class="tab-btn" data-tab="tables" onclick="switchTab('tables')">Tables</button><button class="tab-btn" data-tab="journal" onclick="switchTab('journal')">Journal</button></div>
+<div class="content" id="tab-characters"><div class="box"><div class="box-title">&#9876; Party Traits</div><div id="party-traits-list"></div><button class="btn-link mt-sm" onclick="addPartyTrait()">+ Add Party Trait</button></div><div id="characters-list"></div><button class="btn btn-dark w-full mt-sm" onclick="addCharacter()">+ New Character</button></div>
+<div class="content hidden" id="tab-gameplay"><div class="sub-tabs"><button class="sub-btn active" data-sub="actions" onclick="switchSub('actions')">Actions</button><button class="sub-btn" data-sub="questions" onclick="switchSub('questions')">Questions</button><button class="sub-btn" data-sub="group" onclick="switchSub('group')">Group Actions</button><div style="margin-left:auto"><label class="check-label-sm"><input type="checkbox" id="checks-mode" onchange="saveState()"> Checks Mode</label></div></div><div id="sub-actions"><div class="field"><label class="field-label">Character</label><select class="field-input" id="gp-char-select" onchange="saveState()"><option value="">Select a character...</option></select></div><div id="question-field" class="field hidden"><label class="field-label">Question</label><input class="field-input" id="gp-question" placeholder="Would they consider...?" oninput="saveState()"></div><div class="box-inner"><div class="box-title" id="triple-o-label">Define Three Actions</div><div class="field"><label class="field-label">4–6: The Obvious</label><input class="field-input" id="gp-obvious" placeholder="Most predictable action..." oninput="saveState()"></div><div class="field"><label class="field-label">2–3: The Option</label><input class="field-input" id="gp-option" placeholder="Alternative action..." oninput="saveState()"></div><div class="field"><label class="field-label">1: The Odd</label><input class="field-input" id="gp-odd" placeholder="Unusual action..." oninput="saveState()"></div></div><div class="flex-gap mb-md"><label class="check-label"><input type="checkbox" id="gp-doubledown"> Double-Down (2d6)</label><button class="btn btn-dark" onclick="doTripleOCheck()">Roll Triple-O Check</button></div></div><div id="sub-group" class="hidden"><div class="box-inner"><div class="box-title">Three Courses of Action</div><div class="ga-row"><div class="field"><label class="field-label">Course 1</label><input class="field-input" id="ga-1-text" placeholder="Proposed course of action..."></div><select class="ga-who" id="ga-1-who"><option value="">Who?</option></select></div><div class="ga-row"><div class="field"><label class="field-label">Course 2</label><input class="field-input" id="ga-2-text" placeholder="Proposed course of action..."></div><select class="ga-who" id="ga-2-who"><option value="">Who?</option></select></div><div class="ga-row"><div class="field"><label class="field-label">Course 3</label><input class="field-input" id="ga-3-text" placeholder="Proposed course of action..."></div><select class="ga-who" id="ga-3-who"><option value="">Who?</option></select></div></div><div class="flex-gap mb-md"><label class="check-label"><input type="radio" name="ga-mode" value="manual" checked> Manual assign</label><label class="check-label"><input type="radio" name="ga-mode" value="roll"> Roll to rank</label><label class="check-label"><input type="checkbox" id="ga-doubledown"> Double-Down</label></div><button class="btn btn-dark" onclick="doGroupRoll()">Roll Group Triple-O</button></div><div id="gp-result"></div></div>
+<div class="content hidden" id="tab-tables"><div class="sub-tabs"><button class="sub-btn active" data-ttype="spark" onclick="switchTableType('spark')">Spark Tables</button><button class="sub-btn" data-ttype="specific" onclick="switchTableType('specific')">Specific Tables</button></div><div class="box"><div class="box-title">Select 1–3 tables to combo roll (d66 each)</div><div class="combo-pills" id="combo-pills"></div><div class="mt-sm"><button class="btn btn-dark" id="combo-roll-btn" onclick="rollCombo()" disabled>Roll (—)</button></div></div><div id="table-results"></div><div class="box-title">Quick Roll — tap any table</div><div class="table-grid" id="table-grid"></div></div>
+<div class="content hidden" id="tab-journal"><div class="flex-between mb-md"><span class="box-title" id="journal-count" style="margin-bottom:0">0 entries</span><button class="btn btn-danger btn-sm" onclick="clearJournal()">Clear Journal</button></div><div id="journal-list"><div class="journal-empty">No entries yet. Roll some dice!</div></div></div>
 <script>
-// ══════════════════════════════════════════════════════════════════════════════
-// DATA
-// ══════════════════════════════════════════════════════════════════════════════
-
-const TRAIT_STATUSES = ["empty","default","prevalent","temporary"];
-const TRAIT_STATUS_LABELS = {empty:"○",default:"●",prevalent:"◉",temporary:"◎"};
-const TRAIT_STATUS_NAMES = {empty:"Empty",default:"Default",prevalent:"Prevalent",temporary:"Temporary"};
-
-const SPARK_TABLES = {
-  Action:{11:"Abort",12:"Advance",13:"Aim",14:"Block",15:"Break",16:"Challenge",21:"Climb",22:"Collide",23:"Combat",24:"Concentrate",25:"Consolidate",26:"Coordinate",31:"Cover",32:"Deceive",33:"Deflect",34:"Delve",35:"Destroy",36:"Dodge",41:"Endure",42:"Force",43:"Grab",44:"Help",45:"Impact",46:"Intensify",51:"Invest",52:"Knock down",53:"Lose",54:"Oppose",55:"Penetrate",56:"Persevere",61:"Probe",62:"Protect",63:"Retreat",64:"Separate",65:"Stun",66:"Surprise"},
-  Focus:{11:"Advantage",12:"Ally",13:"Balance",14:"Barrier",15:"Chance",16:"Control",21:"Courage",22:"Damage",23:"Defense",24:"Determination",25:"Environment",26:"Fear",31:"Ferocity",32:"Focus",33:"Impulse",34:"Instinct",35:"Maneuver",36:"Object",41:"Opening",42:"Position",43:"Posture",44:"Power",45:"Precision",46:"Pride",51:"Reach",52:"Resource",53:"Senses",54:"Speed",55:"Strategy",56:"Strength",61:"Subtlety",62:"Technique",63:"Weakness",64:"Weapon",65:"Wits",66:"Wound"},
-  Method:{11:"Adaptation",12:"Agility",13:"Camouflage",14:"Coercion",15:"Cunning",16:"Deception",21:"Distraction",22:"Fear",23:"Guile",24:"Imitation",25:"Improvisation",26:"Ingenuity",31:"Instinct",32:"Intimidation",33:"Knowledge",34:"Magic",35:"Manipulation",36:"Observation",41:"Patience",42:"Persistence",43:"Resilience",44:"Sacrifice",45:"Scheming",46:"Sorcery",51:"Speed",52:"Stealth",53:"Strategy",54:"Strength",55:"Subterfuge",56:"Surprise",61:"Technology",62:"Tenacity",63:"Terrain",64:"Trickery",65:"Violence",66:"Weapons"},
-  Disposition:{11:"Aggressive",12:"Aloof",13:"Ambivalent",14:"Antagonistic",15:"Bold",16:"Cautious",21:"Cheerful",22:"Confident",23:"Cooperative",24:"Curious",25:"Defensive",26:"Detached",31:"Dismissive",32:"Distrustful",33:"Eager",34:"Enthusiastic",35:"Friendly",36:"Guarded",41:"Helpful",42:"Hostile",43:"Indifferent",44:"Inquisitive",45:"Interested",46:"Inviting",51:"Open",52:"Optimistic",53:"Pessimistic",54:"Reluctant",55:"Resentful",56:"Respectful",61:"Suspicious",62:"Sympathetic",63:"Timid",64:"Uninterested",65:"Warm",66:"Wary"},
-  Motivation:{11:"Ambition",12:"Anger",13:"Atonement",14:"Betrayal",15:"Challenge",16:"Curiosity",21:"Despair",22:"Duty",23:"Empathy",24:"Envy",25:"Faith",26:"Fear",31:"Greed",32:"Guilt",33:"Hate",34:"Honor",35:"Hope",36:"Ideology",41:"Justice",42:"Knowledge",43:"Legacy",44:"Love",45:"Loyalty",46:"Mastery",51:"Obsession",52:"Passion",53:"Pride",54:"Regret",55:"Rivalry",56:"Sacrifice",61:"Shame",62:"Sorrow",63:"Survival",64:"Thrill",65:"Tradition",66:"Vengeance"},
-  Dynamics:{11:"Admiring",12:"Affectionate",13:"Amused",14:"Comfortable",15:"Competitive",16:"Conflicted",21:"Contemptuous",22:"Deferential",23:"Defiant",24:"Dependent",25:"Disappointed",26:"Distant",31:"Envious",32:"Exasperated",33:"Fascinated",34:"Grateful",35:"Guilty",36:"Indifferent",41:"Inspired",42:"Intimidated",43:"Intrigued",44:"Judgmental",45:"Loyal",46:"Observant",51:"Patronizing",52:"Protective",53:"Resentful",54:"Respectful",55:"Skeptical",56:"Supportive",61:"Suspicious",62:"Sympathetic",63:"Teasing",64:"Threatened",65:"Trusting",66:"Uneasy"}
-};
-
-const SPECIFIC_TABLES = {
-  Combat:{11:"Aim carefully, wait for an opening",12:"Attack directly with primary weapon",13:"Attack with secondary weapon",14:"Attempt to disarm the enemy",15:"Attempt to flee",16:"Call for a combined action",21:"Call for parley",22:"Cast a spell or use a special ability",23:"Change elevation (climb, jump)",24:"Charge recklessly",25:"Create difficult terrain or obstacles",26:"Destroy enemy cover or resources",31:"Distract or mislead",32:"Draw attention / taunt the enemy",33:"Drop your weapons / surrender",34:"Fall back and regroup",35:"Flank or reposition",36:"Force movement (push, pull, reposition)",41:"Grapple or restrain an opponent",42:"Heal, buff, or protect an ally",43:"Help or assist an ally's action",44:"Hold position and guard",45:"Improvise a weapon",46:"Look for a weakness",51:"Make a feint or fake attack",52:"Rally/inspire to boost morale",53:"Ready an action to respond to a trigger",54:"Set up an ambush or trap",55:"Switch weapons or tactics",56:"Take cover or duck behind something",61:"Target a leader or key figure",62:"Try to intimidate or scare them off",63:"Use a consumable item",64:"Use environment to their advantage",65:"Withdraw or disengage safely",66:"Yell a warning or call for help"},
-  Social:{11:"Appeal to emotion",12:"Appeal to logic",13:"Appeal to rules, laws, or customs",14:"Appeal to their values or beliefs",15:"Apply leverage/blackmail",16:"Ask probing questions",21:"Bluff or exaggerate",22:"Bribe or offer incentive",23:"Challenge to a duel, contest, or wager",24:"Compliment or flatter someone",25:"Confide a secret",26:"Directly inquire about a piece of information",31:"Empathize with their situation or feelings",32:"Exploit rivalries or conflicting interests",33:"Give a gift or token of goodwill",34:"Haggle over price or terms",35:"Invoke shared values, traditions or history",36:"Invoke status, rank, or reputation",41:"Make a concession to move talks",42:"Misdirect or change the subject",43:"Name-drop important connections",44:"Offer a trade or bargain",45:"Offer help or assistance",46:"Perform/entertain to win favor",51:"Pretend to agree",52:"Promise something uncertain",53:"Read the room for mood and dynamics",54:"Set and enforce boundaries",55:"Share a personal story or vulnerability",56:"Speak honestly and openly",61:"Stay silent and observe",62:"Tell a joke or lighten the mood",63:"Try to charm or impress",64:"Try to find common ground",65:"Try to read their intentions",66:"Use threats or a show of force"},
-  Exploration:{11:"Assess the terrain ahead",12:"Check for traps or hazards",13:"Climb or seek vantage point",14:"Collect specimens or samples",15:"Cover tracks",16:"Document discoveries",21:"Forage for food, water, or supplies",22:"Hold back and observe",23:"Hunt or fish",24:"Leave messages or signs",25:"Listen for echoes/water/wind/animals",26:"Look for magical or strange phenomena",31:"Look for shelter from the elements",32:"Look for signs of civilization",33:"Look for tracks or signs of passage",34:"Map or mark the area",35:"Navigate by stars/sun/landmarks",36:"Observe wildlife patterns for clues",41:"Produce source of light or heat",42:"Propose a change in marching order or pace",43:"Propose a short rest",44:"Rush to cover more ground",45:"Scout ahead carefully",46:"Search for hidden paths",51:"Send a companion or summoned being ahead",52:"Stand guard or keep watch",53:"Stay alert and move slowly",54:"Study the weather",55:"Suggest to press on longer",56:"Suggest to split up the group",61:"Take a risk to save time",62:"Test the air or water",63:"Test the ground or depth",64:"Try a different route",65:"Try to identify a plant, creature, or landmark",66:"Use a specialized instrument"},
-  Delving:{11:"Adjust formation or spacing",12:"Backtrack to a previous junction",13:"Check for pressure plates or tripwires",14:"Check for recent signs of passage or presence",15:"Check the ceiling for hazards or stability",16:"Climb or take the high ground",21:"Collect samples",22:"Cover tracks or conceal presence",23:"Create a distraction, lure, or decoy",24:"Document findings and warnings",25:"Examine remains or debris for clues",26:"Examine the structure for weaknesses",31:"Feel for air currents or temperature changes",32:"Follow an unexplored route",33:"Hide in the shadows or a crawlspace",34:"Listen at a door, wall or passage",35:"Look for creature tracks, territorial signs, or lair markings",36:"Map the layout and connections",41:"Mark your path to avoid going in circles",42:"Peek into a room using a mirror or tool",43:"Probe the floor or walls with a pole",44:"Push recklessly onward",45:"Rally the group for a breather",46:"Scout ahead of the party",51:"Seal, block, or barricade an entry",52:"Search for hidden doors, passages or mechanisms",53:"Search for hidden loot or cached supplies",54:"Search for inscriptions, carvings, or symbols",55:"Send a familiar or summoned creature ahead first",56:"Send a light source ahead",61:"Sense for magical residues",62:"Set tripwires, alarms, or warning markers",63:"Sniff the air for gas, smoke, rot or chemicals",64:"Study architecture for purpose, origin, logic, age",65:"Tend to wounds, fatigue, or morale",66:"Toss something ahead to test a room"},
-  Interpretation:{11:"Believe it's a trap or test",12:"Believe they are being lied to or deceived",13:"Connect it to a larger pattern",14:"Dismiss it as a distraction or misdirection",15:"Feel a strong sense of personal duty or responsibility",16:"Feel distrust or suspicion",21:"Feel intense, unfiltered curiosity or fascination",22:"Feel nostalgia or déjà vu",23:"Feel overwhelmed",24:"Get a strong gut feeling that something is wrong",25:"Interpret it as a symbolic message or warning",26:"Misinterpret the situation entirely",31:"Misjudge the intentions of others",32:"Obsess over one detail",33:"Overanalyze every detail",34:"Rationalize it away",35:"Read it as a bad omen or a dark portent",36:"Recognize something as valuable or useful",41:"See connections to previous events",42:"See hidden danger or threat",43:"See it as a challenge or provocation",44:"Seize it as the perfect chance to act",45:"Sense opportunity or advantage",46:"Suspect a hidden reward or secret is nearby",51:"Suspect an ambush",52:"Take it as an invitation or welcome",53:"Take it at face value",54:"Take it personally",55:"Think it's a coincidence",56:"Think it's a performance or an act",61:"Treat it as a key clue to a larger mystery",62:"Treat it as fate or destiny",63:"Trust intuition over logic",64:"Try to read between the lines",65:"View it as a puzzle that needs to be solved",66:"View it as an audition or chance to impress"},
-  Downtime:{11:"Admit a fear or weakness",12:"Ask an ally for advice on a personal dilemma",13:"Ask someone about their motives",14:"Compare beliefs or philosophies",15:"Confess a secret, a lie, or a hidden motive",16:"Confide a lingering doubt",21:"Cook, share food, or offer a drink with intention",22:"Debate a moral choice",23:"Discuss long-term dreams for when the journey ends",24:"Express admiration or gratitude",25:"Express homesickness or longing",26:"Gamble or play a game of chance or skill",31:"Grieve something lost",32:"Indulge in a personal coping mechanism or vice",33:"Inquire about an ally's homeland or family",34:"Offer comfort or encouragement",35:"Ponder about the true nature of their enemies",36:"Practice a skill or hobby",41:"Pray, meditate, or observe a personal tradition",42:"Propose a solemn pact",43:"Question the group's direction or purpose",44:"Rally the group with a speech or toast",45:"Share a cultural ritual, song, or saying",46:"Share a keepsake or memento and its story",51:"Share a story from their childhood",52:"Share rumors or speculation",53:"Sing, play music, or perform for the group",54:"Suggest a change in plans",55:"Talk about a dream you once had",56:"Talk about someone you left behind",61:"Tease, joke, or try to lighten the mood",62:"Tell a story of failure or glory",63:"Tend to wounds or worn gear",64:"Try to teach an ally a minor skill, trick, or phrase",65:"Wander off alone into the dark",66:"Write, sketch, or record thoughts"},
-  Planning:{11:"Avoid confrontation entirely",12:"Call in a favor or old debt",13:"Consult omens, divination, or spiritual guidance",14:"Contact or negotiate with a potential ally/faction",15:"Debate moral/ethical/practical costs",16:"Defer to the party's leader",21:"Eliminate a specific threat first",22:"Look for a local contact, fence, informant, or insider",23:"Follow instinct and improvise",24:"Gather more local rumors or intel",25:"Hire local help or muscle",26:"Learn the local terrain",31:"Make final personal preparations",32:"Pivot to a secondary lead",33:"Plan a distraction or diversion",34:"Prepare healing or protective measures",35:"Propose a high-stakes gamble",36:"Push for a direct, immediate strike",41:"Question the entire mission's purpose",42:"Repair, upgrade, enchant, or modify equipment",43:"Rest and recover before acting",44:"Restock and audit supplies",45:"Scrap the plan and start over",46:"Seek an expert, sage, guide, or specialist",51:"Send someone undercover",52:"Set a trap or ambush",53:"Set signals, code words, or fallback points",54:"Share previously withheld knowledge",55:"Split the party",56:"Study maps, charts, myths, or historical records",61:"Train or practice a specific skill/tactic",62:"Use bribery or social leverage",63:"Volunteer for the dangerous part",64:"Volunteer to scout ahead alone",65:"Wait for better timing/weather/specific event",66:"Warn of a potential trap"}
-};
-
-// ══════════════════════════════════════════════════════════════════════════════
-// STATE
-// ══════════════════════════════════════════════════════════════════════════════
-
-let state = {
-  characters: [{ id: Date.now(), name: "", details: "", situation: "", traits: [{ text: "", category: "CL", status: "empty" }] }],
-  partyTraits: [],
-  journal: [],
-  expandedChar: null,
-  currentSub: "actions",
-  currentTableType: "spark",
-  comboSelected: [],
-  entryId: 0
-};
-
-function nextId() { return ++state.entryId; }
-function rollD6() { return Math.floor(Math.random() * 6) + 1; }
-function rollD66() { const a=rollD6(),b=rollD6(); return {key:a*10+b, display:`${a}${b}`}; }
-function tripleOResult(v) { return v>=4?"THE OBVIOUS":v>=2?"THE OPTION":"THE ODD"; }
-function ts() { return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'}); }
-
-// ══════════════════════════════════════════════════════════════════════════════
-// PERSISTENCE
-// ══════════════════════════════════════════════════════════════════════════════
-
-const SAVE_KEY = "triple_o_state";
-let saveTimeout = null;
-
-function saveState() {
-  if (saveTimeout) clearTimeout(saveTimeout);
-  saveTimeout = setTimeout(() => {
-    try {
-      localStorage.setItem(SAVE_KEY, JSON.stringify({
-        characters: state.characters,
-        partyTraits: state.partyTraits,
-        journal: state.journal,
-        entryId: state.entryId
-      }));
-    } catch(e) { console.warn("Save failed:", e); }
-  }, 600);
-}
-
-function loadState() {
-  try {
-    const raw = localStorage.getItem(SAVE_KEY);
-    if (raw) {
-      const d = JSON.parse(raw);
-      if (d.characters?.length) state.characters = d.characters;
-      if (d.partyTraits) state.partyTraits = d.partyTraits;
-      if (d.journal) state.journal = d.journal;
-      if (d.entryId) state.entryId = d.entryId;
-    }
-  } catch(e) { console.log("No saved data, starting fresh."); }
-}
-
-// ══════════════════════════════════════════════════════════════════════════════
-// TABS
-// ══════════════════════════════════════════════════════════════════════════════
-
-function switchTab(name) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
-  ['characters','gameplay','tables','journal'].forEach(t => {
-    document.getElementById('tab-'+t).classList.toggle('hidden', t !== name);
-  });
-  if (name === 'gameplay') refreshCharSelects();
-  if (name === 'journal') renderJournal();
-  if (name === 'tables') renderTableTab();
-}
-
-function switchSub(name) {
-  state.currentSub = name;
-  document.querySelectorAll('[data-sub]').forEach(b => b.classList.toggle('active', b.dataset.sub === name));
-  document.getElementById('sub-actions').classList.toggle('hidden', name === 'group');
-  document.getElementById('sub-group').classList.toggle('hidden', name !== 'group');
-  document.getElementById('question-field').classList.toggle('hidden', name !== 'questions');
-  document.getElementById('gp-result').innerHTML = '';
-  updateLabels();
-}
-
-function updateLabels() {
-  const checks = document.getElementById('checks-mode').checked;
-  const sub = state.currentSub;
-  const label = document.getElementById('triple-o-label');
-  if (checks) label.textContent = "Define Three Outcomes";
-  else if (sub === 'questions') label.textContent = "Define Three Answers";
-  else label.textContent = "Define Three Actions";
-  // Update placeholders
-  const ph = checks ? ["Most likely outcome...","Somewhat likely outcome...","Least likely outcome..."]
-    : sub === 'questions' ? ["Most likely answer...","Alternative answer...","Unexpected answer..."]
-    : ["Most predictable action...","Alternative action...","Unusual action..."];
-  document.getElementById('gp-obvious').placeholder = ph[0];
-  document.getElementById('gp-option').placeholder = ph[1];
-  document.getElementById('gp-odd').placeholder = ph[2];
-}
-
-// ══════════════════════════════════════════════════════════════════════════════
-// CHARACTERS
-// ══════════════════════════════════════════════════════════════════════════════
-
-function renderCharacters() {
-  // Party traits
-  const ptList = document.getElementById('party-traits-list');
-  ptList.innerHTML = state.partyTraits.map((pt, i) => `
-    <div style="display:flex;gap:6px;margin-bottom:4px;align-items:center">
-      <input class="trait-input" style="flex:1" value="${esc(pt)}" oninput="state.partyTraits[${i}]=this.value;saveState()" placeholder="Party trait...">
-      <button class="trait-remove" onclick="state.partyTraits.splice(${i},1);renderCharacters();saveState()">✕</button>
-    </div>
-  `).join('');
-
-  // Characters
-  const list = document.getElementById('characters-list');
-  list.innerHTML = state.characters.map((c, ci) => {
-    const exp = state.expandedChar === c.id;
-    const traitCount = c.traits.filter(t=>t.text).length;
-    return `
-    <div class="card">
-      <div class="card-header ${exp?'expanded':''}" onclick="toggleChar(${c.id})">
-        <span class="name">${esc(c.name)||'Unnamed Character'}</span>
-        <div class="flex-gap-sm">
-          <span class="meta">${traitCount} traits</span>
-          <span class="arrow">▾</span>
-        </div>
-      </div>
-      ${exp ? `<div class="card-body">
-        <div class="field"><label class="field-label">Name</label><input class="field-input" value="${esc(c.name)}" oninput="state.characters[${ci}].name=this.value;updateCardName(${c.id},this.value);saveState()" placeholder="Character name..."></div>
-        <div class="field"><label class="field-label">Details</label><textarea class="field-input field-textarea" oninput="state.characters[${ci}].details=this.value;saveState()" placeholder="Appearance, class, background...">${esc(c.details)}</textarea></div>
-        <div class="field"><label class="field-label">Current Situation</label><textarea class="field-input field-textarea" oninput="state.characters[${ci}].situation=this.value;saveState()" placeholder="Conditions, morale, recent events...">${esc(c.situation)}</textarea></div>
-        <div class="box-title mt-md">Traits</div>
-        ${c.traits.map((t, ti) => `
-          <div class="trait-row">
-            <button class="trait-status" data-status="${t.status}" title="${TRAIT_STATUS_NAMES[t.status]}" onclick="cycleTrait(${ci},${ti})">${TRAIT_STATUS_LABELS[t.status]}</button>
-            <input class="trait-input" value="${esc(t.text)}" oninput="state.characters[${ci}].traits[${ti}].text=this.value;saveState()" placeholder="Trait snippet...">
-            <input class="trait-cat" value="${esc(t.category)}" maxlength="3" oninput="state.characters[${ci}].traits[${ti}].category=this.value.toUpperCase().slice(0,3);this.value=state.characters[${ci}].traits[${ti}].category;saveState()" placeholder="CL">
-            <button class="trait-remove" onclick="state.characters[${ci}].traits.splice(${ti},1);renderCharacters();saveState()">✕</button>
-          </div>
-        `).join('')}
-        <div class="flex-between mt-sm">
-          <button class="btn-link" onclick="state.characters[${ci}].traits.push({text:'',category:'',status:'empty'});renderCharacters();saveState()">+ Trait</button>
-          <button class="btn-link-danger" onclick="removeChar(${ci})">Remove Character</button>
-        </div>
-      </div>` : ''}
-    </div>`;
-  }).join('');
-}
-
-function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-
-function toggleChar(id) {
-  state.expandedChar = state.expandedChar === id ? null : id;
-  renderCharacters();
-}
-
-function updateCardName(id, name) {
-  const card = document.querySelector(`.card-header[onclick="toggleChar(${id})"] .name`);
-  if (card) card.textContent = name || 'Unnamed Character';
-}
-
-function addCharacter() {
-  const c = { id: Date.now(), name: "", details: "", situation: "", traits: [{ text: "", category: "CL", status: "empty" }] };
-  state.characters.push(c);
-  renderCharacters();
-  saveState();
-}
-
-function removeChar(ci) {
-  const id = state.characters[ci].id;
-  state.characters.splice(ci, 1);
-  if (state.expandedChar === id) state.expandedChar = null;
-  renderCharacters();
-  saveState();
-}
-
-function addPartyTrait() {
-  state.partyTraits.push("");
-  renderCharacters();
-  saveState();
-}
-
-function cycleTrait(ci, ti) {
-  const t = state.characters[ci].traits[ti];
-  const idx = TRAIT_STATUSES.indexOf(t.status);
-  t.status = TRAIT_STATUSES[(idx + 1) % TRAIT_STATUSES.length];
-  renderCharacters();
-  saveState();
-}
-
-// ══════════════════════════════════════════════════════════════════════════════
-// GAMEPLAY
-// ══════════════════════════════════════════════════════════════════════════════
-
-function refreshCharSelects() {
-  const opts = '<option value="">Select / Who?</option>' + state.characters.map(c =>
-    `<option value="${c.id}">${esc(c.name)||'Unnamed'}</option>`
-  ).join('');
-  document.getElementById('gp-char-select').innerHTML = opts;
-  ['ga-1-who','ga-2-who','ga-3-who'].forEach(id => {
-    document.getElementById(id).innerHTML = '<option value="">Who?</option>' + state.characters.map(c =>
-      `<option value="${c.id}">${esc(c.name)||'Unnamed'}</option>`
-    ).join('');
-  });
-}
-
-function getCharName(id) {
-  const c = state.characters.find(x => x.id == id);
-  return c ? (c.name || 'Unnamed') : 'Unknown';
-}
-
-function doTripleOCheck() {
-  const obvious = document.getElementById('gp-obvious').value;
-  const option = document.getElementById('gp-option').value;
-  const odd = document.getElementById('gp-odd').value;
-  const question = document.getElementById('gp-question').value;
-  const charId = document.getElementById('gp-char-select').value;
-  const dd = document.getElementById('gp-doubledown').checked;
-  const checks = document.getElementById('checks-mode').checked;
-  const sub = state.currentSub;
-  const charName = getCharName(charId);
-
-  if (!obvious) return;
-
-  const container = document.getElementById('gp-result');
-
-  if (dd) {
-    const d1=rollD6(), d2=rollD6(), doubles = d1===d2;
-    container.innerHTML = `
-      <div class="result-box">
-        <div style="display:flex;justify-content:center;gap:10px;margin-bottom:10px">
-          <span class="result-dice">${d1}</span><span class="result-dice">${d2}</span>
-        </div>
-        <div class="result-pick">Pick your favorite: [${d1}] = ${tripleOResult(d1)} or [${d2}] = ${tripleOResult(d2)}</div>
-        ${doubles ? '<div class="result-doubles">★ DOUBLES! ★</div>' : ''}
-        <div class="result-context">${obvious ? 'Obvious: '+esc(obvious) : ''}${option ? ' · Option: '+esc(option) : ''}${odd ? ' · Odd: '+esc(odd) : ''}</div>
-      </div>`;
-    addJournal({
-      type: `Triple-O ${checks?'Check (Resolution)':'Check'} — Double-Down`,
-      character: charName,
-      question: sub==='questions' ? question : null,
-      detail: `Rolled 2d6: [${d1}] [${d2}]${doubles?' — DOUBLES!':''}`,
-      obvious, option, odd,
-      note: doubles ? 'Doubles rolled! Consider promoting a trait or adding a new one.' : null
-    });
-  } else {
-    const d = rollD6(), outcome = tripleOResult(d);
-    container.innerHTML = `
-      <div class="result-box">
-        <div style="display:flex;justify-content:center;margin-bottom:10px"><span class="result-dice">${d}</span></div>
-        <div class="result-outcome">${outcome}</div>
-        <div class="result-context">${obvious ? 'Obvious: '+esc(obvious) : ''}${option ? ' · Option: '+esc(option) : ''}${odd ? ' · Odd: '+esc(odd) : ''}</div>
-      </div>`;
-    addJournal({
-      type: `Triple-O ${checks?'Check (Resolution)':'Check'}`,
-      character: charName,
-      question: sub==='questions' ? question : null,
-      detail: `Rolled 1d6: [${d}] → ${outcome}`,
-      obvious, option, odd
-    });
-  }
-}
-
-function doGroupRoll() {
-  const texts = [
-    document.getElementById('ga-1-text').value,
-    document.getElementById('ga-2-text').value,
-    document.getElementById('ga-3-text').value
-  ];
-  if (!texts[0]) return;
-
-  const mode = document.querySelector('input[name="ga-mode"]:checked').value;
-  const dd = document.getElementById('ga-doubledown').checked;
-  let obvious = texts[0], option = texts[1], odd = texts[2];
-
-  const container = document.getElementById('gp-result');
-
-  if (mode === 'roll') {
-    const rolls = texts.map((t,i) => ({text:t, roll:rollD6(), idx:i}));
-    rolls.sort((a,b) => b.roll - a.roll);
-    obvious = rolls[0].text; option = rolls[1].text; odd = rolls[2].text;
-    addJournal({
-      type: 'Group Action — Ranking Roll',
-      detail: rolls.map(r => `"${r.text||'(blank)'}" rolled [${r.roll}]`).join(', '),
-      obvious, option, odd
-    });
-  }
-
-  if (dd) {
-    const d1=rollD6(), d2=rollD6(), doubles=d1===d2;
-    container.innerHTML = `
-      <div class="result-box">
-        <div style="display:flex;justify-content:center;gap:10px;margin-bottom:10px">
-          <span class="result-dice">${d1}</span><span class="result-dice">${d2}</span>
-        </div>
-        <div class="result-pick">Pick your favorite: [${d1}] = ${tripleOResult(d1)} or [${d2}] = ${tripleOResult(d2)}</div>
-        ${doubles ? '<div class="result-doubles">★ DOUBLES! Consider a Party Trait. ★</div>' : ''}
-        <div class="result-context">${obvious?'Obvious: '+esc(obvious):''}${option?' · Option: '+esc(option):''}${odd?' · Odd: '+esc(odd):''}</div>
-      </div>`;
-    addJournal({
-      type: 'Triple-O Check — Group Action (Double-Down)',
-      detail: `Rolled 2d6: [${d1}] [${d2}]${doubles?' — DOUBLES!':''}`,
-      obvious, option, odd,
-      note: doubles ? 'Doubles! Consider adding a Party Trait.' : null
-    });
-  } else {
-    const d=rollD6(), outcome=tripleOResult(d);
-    container.innerHTML = `
-      <div class="result-box">
-        <div style="display:flex;justify-content:center;margin-bottom:10px"><span class="result-dice">${d}</span></div>
-        <div class="result-outcome">${outcome}</div>
-        <div class="result-context">${obvious?'Obvious: '+esc(obvious):''}${option?' · Option: '+esc(option):''}${odd?' · Odd: '+esc(odd):''}</div>
-      </div>`;
-    addJournal({
-      type: 'Triple-O Check — Group Action',
-      detail: `Rolled 1d6: [${d}] → ${outcome}`,
-      obvious, option, odd
-    });
-  }
-}
-
-// ══════════════════════════════════════════════════════════════════════════════
-// TABLES
-// ══════════════════════════════════════════════════════════════════════════════
-
-function switchTableType(type) {
-  state.currentTableType = type;
-  state.comboSelected = [];
-  document.querySelectorAll('[data-ttype]').forEach(b => b.classList.toggle('active', b.dataset.ttype === type));
-  renderTableTab();
-}
-
-function renderTableTab() {
-  const tables = state.currentTableType === 'spark' ? SPARK_TABLES : SPECIFIC_TABLES;
-  const names = Object.keys(tables);
-
-  // Combo pills
-  document.getElementById('combo-pills').innerHTML = names.map(n =>
-    `<button class="combo-pill ${state.comboSelected.includes(n)?'selected':''}" onclick="toggleCombo('${n}')">${n}</button>`
-  ).join('');
-
-  // Combo button
-  const btn = document.getElementById('combo-roll-btn');
-  btn.disabled = state.comboSelected.length === 0;
-  btn.textContent = `Roll ${state.comboSelected.length>1?'Combo ':''} (${state.comboSelected.length || '—'})`;
-
-  // Grid
-  document.getElementById('table-grid').innerHTML = names.map(n =>
-    `<button class="table-grid-btn" onclick="rollSingle('${n}')">${n}</button>`
-  ).join('');
-}
-
-function toggleCombo(name) {
-  const idx = state.comboSelected.indexOf(name);
-  if (idx >= 0) state.comboSelected.splice(idx, 1);
-  else if (state.comboSelected.length < 3) state.comboSelected.push(name);
-  renderTableTab();
-}
-
-function rollCombo() {
-  if (!state.comboSelected.length) return;
-  const tables = state.currentTableType === 'spark' ? SPARK_TABLES : SPECIFIC_TABLES;
-  const results = state.comboSelected.map(name => {
-    const r = rollD66();
-    return { table: name, d66: r.display, result: tables[name][r.key] || "Reroll" };
-  });
-  showTableResults(results);
-  const detail = results.map(r => `${r.table}: [${r.d66}] → ${r.result}`).join(' + ');
-  addJournal({ type: results.length > 1 ? 'Combo Table Roll' : 'Table Roll', detail });
-}
-
-function rollSingle(name) {
-  const tables = state.currentTableType === 'spark' ? SPARK_TABLES : SPECIFIC_TABLES;
-  const r = rollD66();
-  const result = tables[name][r.key] || "Reroll";
-  state.comboSelected = [name];
-  renderTableTab();
-  showTableResults([{ table: name, d66: r.display, result }]);
-  addJournal({ type: 'Table Roll', detail: `${name}: [${r.d66}] → ${result}` });
-}
-
-function showTableResults(results) {
-  document.getElementById('table-results').innerHTML = `
-    <div class="result-box" style="text-align:left;margin-top:0;margin-bottom:16px">
-      ${results.map(r => `
-        <div class="table-result-row">
-          <span class="result-dice" style="width:44px;height:44px;font-size:20px;flex-shrink:0">${r.d66}</span>
-          <div>
-            <div class="table-result-name">${r.table}</div>
-            <div class="table-result-val">${esc(r.result)}</div>
-          </div>
-        </div>
-      `).join('')}
-    </div>`;
-}
-
-// ══════════════════════════════════════════════════════════════════════════════
-// JOURNAL
-// ══════════════════════════════════════════════════════════════════════════════
-
-function addJournal(entry) {
-  entry.id = nextId();
-  entry.time = ts();
-  state.journal.push(entry);
-  saveState();
-  // Update tab badge
-  document.querySelector('[data-tab="journal"]').textContent = `Journal (${state.journal.length})`;
-}
-
-function renderJournal() {
-  const list = document.getElementById('journal-list');
-  const count = document.getElementById('journal-count');
-  count.textContent = `${state.journal.length} entries`;
-
-  if (!state.journal.length) {
-    list.innerHTML = '<div class="journal-empty">No entries yet. Roll some dice!</div>';
-    return;
-  }
-  list.innerHTML = state.journal.map(e => `
-    <div class="journal-entry">
-      <div class="journal-header">
-        <span class="journal-type">${esc(e.type)}</span>
-        <span class="journal-time">${e.time}</span>
-      </div>
-      ${e.character ? `<div class="journal-char">Character: ${esc(e.character)}</div>` : ''}
-      ${e.question ? `<div class="journal-question">"${esc(e.question)}"</div>` : ''}
-      <div class="journal-detail">${esc(e.detail)}</div>
-      ${e.obvious ? `<div class="journal-ooo">Obvious: ${esc(e.obvious)}${e.option?' · Option: '+esc(e.option):''}${e.odd?' · Odd: '+esc(e.odd):''}</div>` : ''}
-      ${e.note ? `<div class="journal-note">★ ${esc(e.note)}</div>` : ''}
-    </div>
-  `).join('');
-  // Scroll to bottom
-  list.lastElementChild?.scrollIntoView({behavior:'smooth'});
-}
-
-function clearJournal() {
-  if (!confirm('Clear all journal entries?')) return;
-  state.journal = [];
-  state.entryId = 0;
-  saveState();
-  renderJournal();
-  document.querySelector('[data-tab="journal"]').textContent = 'Journal';
-}
-
-// ══════════════════════════════════════════════════════════════════════════════
-// INIT
-// ══════════════════════════════════════════════════════════════════════════════
-
-loadState();
-renderCharacters();
-renderTableTab();
-if (state.journal.length) {
-  document.querySelector('[data-tab="journal"]').textContent = `Journal (${state.journal.length})`;
-}
+var TRAIT_STATUSES=["empty","default","prevalent","temporary"];
+var TRAIT_STATUS_LABELS={empty:"\u25CB",default:"\u25CF",prevalent:"\u25C9",temporary:"\u25CE"};
+var TRAIT_STATUS_NAMES={empty:"Empty",default:"Default",prevalent:"Prevalent",temporary:"Temporary"};
+var SPARK_TABLES={Action:{11:"Abort",12:"Advance",13:"Aim",14:"Block",15:"Break",16:"Challenge",21:"Climb",22:"Collide",23:"Combat",24:"Concentrate",25:"Consolidate",26:"Coordinate",31:"Cover",32:"Deceive",33:"Deflect",34:"Delve",35:"Destroy",36:"Dodge",41:"Endure",42:"Force",43:"Grab",44:"Help",45:"Impact",46:"Intensify",51:"Invest",52:"Knock down",53:"Lose",54:"Oppose",55:"Penetrate",56:"Persevere",61:"Probe",62:"Protect",63:"Retreat",64:"Separate",65:"Stun",66:"Surprise"},Focus:{11:"Advantage",12:"Ally",13:"Balance",14:"Barrier",15:"Chance",16:"Control",21:"Courage",22:"Damage",23:"Defense",24:"Determination",25:"Environment",26:"Fear",31:"Ferocity",32:"Focus",33:"Impulse",34:"Instinct",35:"Maneuver",36:"Object",41:"Opening",42:"Position",43:"Posture",44:"Power",45:"Precision",46:"Pride",51:"Reach",52:"Resource",53:"Senses",54:"Speed",55:"Strategy",56:"Strength",61:"Subtlety",62:"Technique",63:"Weakness",64:"Weapon",65:"Wits",66:"Wound"},Method:{11:"Adaptation",12:"Agility",13:"Camouflage",14:"Coercion",15:"Cunning",16:"Deception",21:"Distraction",22:"Fear",23:"Guile",24:"Imitation",25:"Improvisation",26:"Ingenuity",31:"Instinct",32:"Intimidation",33:"Knowledge",34:"Magic",35:"Manipulation",36:"Observation",41:"Patience",42:"Persistence",43:"Resilience",44:"Sacrifice",45:"Scheming",46:"Sorcery",51:"Speed",52:"Stealth",53:"Strategy",54:"Strength",55:"Subterfuge",56:"Surprise",61:"Technology",62:"Tenacity",63:"Terrain",64:"Trickery",65:"Violence",66:"Weapons"},Disposition:{11:"Aggressive",12:"Aloof",13:"Ambivalent",14:"Antagonistic",15:"Bold",16:"Cautious",21:"Cheerful",22:"Confident",23:"Cooperative",24:"Curious",25:"Defensive",26:"Detached",31:"Dismissive",32:"Distrustful",33:"Eager",34:"Enthusiastic",35:"Friendly",36:"Guarded",41:"Helpful",42:"Hostile",43:"Indifferent",44:"Inquisitive",45:"Interested",46:"Inviting",51:"Open",52:"Optimistic",53:"Pessimistic",54:"Reluctant",55:"Resentful",56:"Respectful",61:"Suspicious",62:"Sympathetic",63:"Timid",64:"Uninterested",65:"Warm",66:"Wary"},Motivation:{11:"Ambition",12:"Anger",13:"Atonement",14:"Betrayal",15:"Challenge",16:"Curiosity",21:"Despair",22:"Duty",23:"Empathy",24:"Envy",25:"Faith",26:"Fear",31:"Greed",32:"Guilt",33:"Hate",34:"Honor",35:"Hope",36:"Ideology",41:"Justice",42:"Knowledge",43:"Legacy",44:"Love",45:"Loyalty",46:"Mastery",51:"Obsession",52:"Passion",53:"Pride",54:"Regret",55:"Rivalry",56:"Sacrifice",61:"Shame",62:"Sorrow",63:"Survival",64:"Thrill",65:"Tradition",66:"Vengeance"},Dynamics:{11:"Admiring",12:"Affectionate",13:"Amused",14:"Comfortable",15:"Competitive",16:"Conflicted",21:"Contemptuous",22:"Deferential",23:"Defiant",24:"Dependent",25:"Disappointed",26:"Distant",31:"Envious",32:"Exasperated",33:"Fascinated",34:"Grateful",35:"Guilty",36:"Indifferent",41:"Inspired",42:"Intimidated",43:"Intrigued",44:"Judgmental",45:"Loyal",46:"Observant",51:"Patronizing",52:"Protective",53:"Resentful",54:"Respectful",55:"Skeptical",56:"Supportive",61:"Suspicious",62:"Sympathetic",63:"Teasing",64:"Threatened",65:"Trusting",66:"Uneasy"}};
+var SPECIFIC_TABLES={Combat:{11:"Aim carefully, wait for an opening",12:"Attack directly with primary weapon",13:"Attack with secondary weapon",14:"Attempt to disarm the enemy",15:"Attempt to flee",16:"Call for a combined action",21:"Call for parley",22:"Cast a spell or use a special ability",23:"Change elevation (climb, jump)",24:"Charge recklessly",25:"Create difficult terrain or obstacles",26:"Destroy enemy cover or resources",31:"Distract or mislead",32:"Draw attention / taunt the enemy",33:"Drop your weapons / surrender",34:"Fall back and regroup",35:"Flank or reposition",36:"Force movement (push, pull, reposition)",41:"Grapple or restrain an opponent",42:"Heal, buff, or protect an ally",43:"Help or assist an ally's action",44:"Hold position and guard",45:"Improvise a weapon",46:"Look for a weakness",51:"Make a feint or fake attack",52:"Rally/inspire to boost morale",53:"Ready an action to respond to a trigger",54:"Set up an ambush or trap",55:"Switch weapons or tactics",56:"Take cover or duck behind something",61:"Target a leader or key figure",62:"Try to intimidate or scare them off",63:"Use a consumable item",64:"Use environment to their advantage",65:"Withdraw or disengage safely",66:"Yell a warning or call for help"},Social:{11:"Appeal to emotion",12:"Appeal to logic",13:"Appeal to rules, laws, or customs",14:"Appeal to their values or beliefs",15:"Apply leverage/blackmail",16:"Ask probing questions",21:"Bluff or exaggerate",22:"Bribe or offer incentive",23:"Challenge to a duel, contest, or wager",24:"Compliment or flatter someone",25:"Confide a secret",26:"Directly inquire about a piece of information",31:"Empathize with their situation or feelings",32:"Exploit rivalries or conflicting interests",33:"Give a gift or token of goodwill",34:"Haggle over price or terms",35:"Invoke shared values, traditions or history",36:"Invoke status, rank, or reputation",41:"Make a concession to move talks",42:"Misdirect or change the subject",43:"Name-drop important connections",44:"Offer a trade or bargain",45:"Offer help or assistance",46:"Perform/entertain to win favor",51:"Pretend to agree",52:"Promise something uncertain",53:"Read the room for mood and dynamics",54:"Set and enforce boundaries",55:"Share a personal story or vulnerability",56:"Speak honestly and openly",61:"Stay silent and observe",62:"Tell a joke or lighten the mood",63:"Try to charm or impress",64:"Try to find common ground",65:"Try to read their intentions",66:"Use threats or a show of force"},Exploration:{11:"Assess the terrain ahead",12:"Check for traps or hazards",13:"Climb or seek vantage point",14:"Collect specimens or samples",15:"Cover tracks",16:"Document discoveries",21:"Forage for food, water, or supplies",22:"Hold back and observe",23:"Hunt or fish",24:"Leave messages or signs",25:"Listen for echoes/water/wind/animals",26:"Look for magical or strange phenomena",31:"Look for shelter from the elements",32:"Look for signs of civilization",33:"Look for tracks or signs of passage",34:"Map or mark the area",35:"Navigate by stars/sun/landmarks",36:"Observe wildlife patterns for clues",41:"Produce source of light or heat",42:"Propose a change in marching order or pace",43:"Propose a short rest",44:"Rush to cover more ground",45:"Scout ahead carefully",46:"Search for hidden paths",51:"Send a companion or summoned being ahead",52:"Stand guard or keep watch",53:"Stay alert and move slowly",54:"Study the weather",55:"Suggest to press on longer",56:"Suggest to split up the group",61:"Take a risk to save time",62:"Test the air or water",63:"Test the ground or depth",64:"Try a different route",65:"Try to identify a plant, creature, or landmark",66:"Use a specialized instrument"},Delving:{11:"Adjust formation or spacing",12:"Backtrack to a previous junction",13:"Check for pressure plates or tripwires",14:"Check for recent signs of passage or presence",15:"Check the ceiling for hazards or stability",16:"Climb or take the high ground",21:"Collect samples",22:"Cover tracks or conceal presence",23:"Create a distraction, lure, or decoy",24:"Document findings and warnings",25:"Examine remains or debris for clues",26:"Examine the structure for weaknesses",31:"Feel for air currents or temperature changes",32:"Follow an unexplored route",33:"Hide in the shadows or a crawlspace",34:"Listen at a door, wall or passage",35:"Look for creature tracks, territorial signs, or lair markings",36:"Map the layout and connections",41:"Mark your path to avoid going in circles",42:"Peek into a room using a mirror or tool",43:"Probe the floor or walls with a pole",44:"Push recklessly onward",45:"Rally the group for a breather",46:"Scout ahead of the party",51:"Seal, block, or barricade an entry",52:"Search for hidden doors, passages or mechanisms",53:"Search for hidden loot or cached supplies",54:"Search for inscriptions, carvings, or symbols",55:"Send a familiar or summoned creature ahead first",56:"Send a light source ahead",61:"Sense for magical residues",62:"Set tripwires, alarms, or warning markers",63:"Sniff the air for gas, smoke, rot or chemicals",64:"Study architecture for purpose, origin, logic, age",65:"Tend to wounds, fatigue, or morale",66:"Toss something ahead to test a room"},Interpretation:{11:"Believe it's a trap or test",12:"Believe they are being lied to or deceived",13:"Connect it to a larger pattern",14:"Dismiss it as a distraction or misdirection",15:"Feel a strong sense of personal duty or responsibility",16:"Feel distrust or suspicion",21:"Feel intense, unfiltered curiosity or fascination",22:"Feel nostalgia or d\u00e9j\u00e0 vu",23:"Feel overwhelmed",24:"Get a strong gut feeling that something is wrong",25:"Interpret it as a symbolic message or warning",26:"Misinterpret the situation entirely",31:"Misjudge the intentions of others",32:"Obsess over one detail",33:"Overanalyze every detail",34:"Rationalize it away",35:"Read it as a bad omen or a dark portent",36:"Recognize something as valuable or useful",41:"See connections to previous events",42:"See hidden danger or threat",43:"See it as a challenge or provocation",44:"Seize it as the perfect chance to act",45:"Sense opportunity or advantage",46:"Suspect a hidden reward or secret is nearby",51:"Suspect an ambush",52:"Take it as an invitation or welcome",53:"Take it at face value",54:"Take it personally",55:"Think it's a coincidence",56:"Think it's a performance or an act",61:"Treat it as a key clue to a larger mystery",62:"Treat it as fate or destiny",63:"Trust intuition over logic",64:"Try to read between the lines",65:"View it as a puzzle that needs to be solved",66:"View it as an audition or chance to impress"},Downtime:{11:"Admit a fear or weakness",12:"Ask an ally for advice on a personal dilemma",13:"Ask someone about their motives",14:"Compare beliefs or philosophies",15:"Confess a secret, a lie, or a hidden motive",16:"Confide a lingering doubt",21:"Cook, share food, or offer a drink with intention",22:"Debate a moral choice",23:"Discuss long-term dreams for when the journey ends",24:"Express admiration or gratitude",25:"Express homesickness or longing",26:"Gamble or play a game of chance or skill",31:"Grieve something lost",32:"Indulge in a personal coping mechanism or vice",33:"Inquire about an ally's homeland or family",34:"Offer comfort or encouragement",35:"Ponder about the true nature of their enemies",36:"Practice a skill or hobby",41:"Pray, meditate, or observe a personal tradition",42:"Propose a solemn pact",43:"Question the group's direction or purpose",44:"Rally the group with a speech or toast",45:"Share a cultural ritual, song, or saying",46:"Share a keepsake or memento and its story",51:"Share a story from their childhood",52:"Share rumors or speculation",53:"Sing, play music, or perform for the group",54:"Suggest a change in plans",55:"Talk about a dream you once had",56:"Talk about someone you left behind",61:"Tease, joke, or try to lighten the mood",62:"Tell a story of failure or glory",63:"Tend to wounds or worn gear",64:"Try to teach an ally a minor skill, trick, or phrase",65:"Wander off alone into the dark",66:"Write, sketch, or record thoughts"},Planning:{11:"Avoid confrontation entirely",12:"Call in a favor or old debt",13:"Consult omens, divination, or spiritual guidance",14:"Contact or negotiate with a potential ally/faction",15:"Debate moral/ethical/practical costs",16:"Defer to the party's leader",21:"Eliminate a specific threat first",22:"Look for a local contact, fence, informant, or insider",23:"Follow instinct and improvise",24:"Gather more local rumors or intel",25:"Hire local help or muscle",26:"Learn the local terrain",31:"Make final personal preparations",32:"Pivot to a secondary lead",33:"Plan a distraction or diversion",34:"Prepare healing or protective measures",35:"Propose a high-stakes gamble",36:"Push for a direct, immediate strike",41:"Question the entire mission's purpose",42:"Repair, upgrade, enchant, or modify equipment",43:"Rest and recover before acting",44:"Restock and audit supplies",45:"Scrap the plan and start over",46:"Seek an expert, sage, guide, or specialist",51:"Send someone undercover",52:"Set a trap or ambush",53:"Set signals, code words, or fallback points",54:"Share previously withheld knowledge",55:"Split the party",56:"Study maps, charts, myths, or historical records",61:"Train or practice a specific skill/tactic",62:"Use bribery or social leverage",63:"Volunteer for the dangerous part",64:"Volunteer to scout ahead alone",65:"Wait for better timing/weather/specific event",66:"Warn of a potential trap"}};
+var SAVE_KEY="triple_o_v2",saveTimeout=null;
+function emptyCampaign(n){var t=Date.now();return{id:t,name:n||"Untitled Campaign",characters:[{id:t+1,name:"",details:"",situation:"",traits:[{text:"",category:"CL",status:"empty"}]}],partyTraits:[],journal:[],entryId:0}}
+var appData={campaigns:[emptyCampaign("Default Campaign")],activeCampaignId:null};
+var ui={expandedChar:null,currentSub:"actions",currentTableType:"spark",comboSelected:[]};
+function camp(){return appData.campaigns.find(function(c){return c.id===appData.activeCampaignId})||appData.campaigns[0]}
+function nextId(){return ++camp().entryId}
+function rollD6(){return Math.floor(Math.random()*6)+1}
+function rollD66(){var a=rollD6(),b=rollD6();return{key:a*10+b,display:""+a+b}}
+function tripleOResult(v){return v>=4?"THE OBVIOUS":v>=2?"THE OPTION":"THE ODD"}
+function ts(){return new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit",second:"2-digit"})}
+function esc(s){return(s||"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function saveState(){if(saveTimeout)clearTimeout(saveTimeout);saveTimeout=setTimeout(function(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(appData))}catch(e){console.warn("Save failed:",e)}},600)}
+function loadState(){try{var raw=localStorage.getItem(SAVE_KEY);if(raw){var d=JSON.parse(raw);if(d.campaigns&&d.campaigns.length){appData=d}else if(d.characters){var m=emptyCampaign("Migrated Campaign");m.characters=d.characters;m.partyTraits=d.partyTraits||[];m.journal=d.journal||[];m.entryId=d.entryId||0;appData={campaigns:[m],activeCampaignId:m.id}}}}catch(e){console.log("No saved data.")}if(!appData.activeCampaignId&&appData.campaigns.length)appData.activeCampaignId=appData.campaigns[0].id}
+function openPanel(){renderCampaignList();document.getElementById("overlay-bg").classList.add("show");document.getElementById("slide-panel").classList.add("show")}
+function closePanel(){document.getElementById("overlay-bg").classList.remove("show");document.getElementById("slide-panel").classList.remove("show")}
+function renderCampaignList(){var list=document.getElementById("campaign-list");list.innerHTML=appData.campaigns.map(function(c){var active=c.id===appData.activeCampaignId;var cn=c.characters.filter(function(ch){return ch.name}).length;return'<div class="campaign-item '+(active?"active":"")+'" onclick="switchCampaign('+c.id+')"><span class="camp-name">'+(active?"\u25b8 ":"")+esc(c.name)+'</span><span class="camp-meta">'+cn+" chars \xb7 "+c.journal.length+" log</span></div>"}).join("")}
+function switchCampaign(id){appData.activeCampaignId=id;ui.expandedChar=null;saveState();renderAll();renderCampaignList()}
+function newCampaign(){var n=prompt("Campaign name:");if(!n)return;var c=emptyCampaign(n);appData.campaigns.push(c);appData.activeCampaignId=c.id;ui.expandedChar=null;saveState();renderAll();renderCampaignList()}
+function renameCampaign(){var c=camp();var n=prompt("Rename campaign:",c.name);if(!n)return;c.name=n;saveState();renderAll();renderCampaignList()}
+function deleteCampaign(){if(appData.campaigns.length<=1){alert("Can't delete your only campaign.");return}var c=camp();if(!confirm('Delete "'+c.name+'" and all its data? This cannot be undone.'))return;appData.campaigns=appData.campaigns.filter(function(x){return x.id!==c.id});appData.activeCampaignId=appData.campaigns[0].id;ui.expandedChar=null;saveState();renderAll();renderCampaignList()}
+function exportData(){var blob=new Blob([JSON.stringify(appData,null,2)],{type:"application/json"});var url=URL.createObjectURL(blob);var a=document.createElement("a");a.href=url;a.download="triple-o-backup.json";a.click();URL.revokeObjectURL(url)}
+function importData(event){var file=event.target.files[0];if(!file)return;var reader=new FileReader();reader.onload=function(e){try{var d=JSON.parse(e.target.result);if(d.campaigns&&d.campaigns.length){var existing=new Set(appData.campaigns.map(function(c){return c.id}));var added=0;d.campaigns.forEach(function(c){if(!existing.has(c.id)){appData.campaigns.push(c);added++}});saveState();renderAll();renderCampaignList();alert("Imported "+added+" new campaign(s). "+(d.campaigns.length-added)+" already existed.")}else{alert("Invalid file format.")}}catch(err){alert("Failed to parse: "+err.message)}};reader.readAsText(file);event.target.value=""}
+function switchTab(name){document.querySelectorAll(".tab-btn").forEach(function(b){b.classList.toggle("active",b.dataset.tab===name)});["characters","gameplay","tables","journal"].forEach(function(t){document.getElementById("tab-"+t).classList.toggle("hidden",t!==name)});if(name==="gameplay")refreshCharSelects();if(name==="journal")renderJournal();if(name==="tables")renderTableTab()}
+function switchSub(name){ui.currentSub=name;document.querySelectorAll("[data-sub]").forEach(function(b){b.classList.toggle("active",b.dataset.sub===name)});document.getElementById("sub-actions").classList.toggle("hidden",name==="group");document.getElementById("sub-group").classList.toggle("hidden",name!=="group");document.getElementById("question-field").classList.toggle("hidden",name!=="questions");document.getElementById("gp-result").innerHTML="";updateLabels()}
+function updateLabels(){var checks=document.getElementById("checks-mode").checked;var sub=ui.currentSub;var label=document.getElementById("triple-o-label");if(checks)label.textContent="Define Three Outcomes";else if(sub==="questions")label.textContent="Define Three Answers";else label.textContent="Define Three Actions";var ph=checks?["Most likely outcome...","Somewhat likely outcome...","Least likely outcome..."]:sub==="questions"?["Most likely answer...","Alternative answer...","Unexpected answer..."]:["Most predictable action...","Alternative action...","Unusual action..."];document.getElementById("gp-obvious").placeholder=ph[0];document.getElementById("gp-option").placeholder=ph[1];document.getElementById("gp-odd").placeholder=ph[2]}
+function renderCharacters(){var c=camp();document.getElementById("party-traits-list").innerHTML=c.partyTraits.map(function(pt,i){return'<div style="display:flex;gap:6px;margin-bottom:4px;align-items:center"><input class="trait-input" style="flex:1" value="'+esc(pt)+'" oninput="camp().partyTraits['+i+']=this.value;saveState()" placeholder="Party trait..."><button class="trait-remove" onclick="camp().partyTraits.splice('+i+',1);renderCharacters();saveState()">\u2715</button></div>'}).join("");document.getElementById("characters-list").innerHTML=c.characters.map(function(ch,ci){var exp=ui.expandedChar===ch.id;var tc=ch.traits.filter(function(t){return t.text}).length;var html='<div class="card"><div class="card-header '+(exp?"expanded":"")+'" onclick="toggleChar('+ch.id+')"><span class="name">'+(esc(ch.name)||"Unnamed Character")+'</span><div class="flex-gap-sm"><span class="meta">'+tc+' traits</span><span class="arrow">\u25be</span></div></div>';if(exp){html+='<div class="card-body"><div class="field"><label class="field-label">Name</label><input class="field-input" value="'+esc(ch.name)+'" oninput="camp().characters['+ci+'].name=this.value;saveState()" placeholder="Character name..."></div><div class="field"><label class="field-label">Details</label><textarea class="field-input field-textarea" oninput="camp().characters['+ci+'].details=this.value;saveState()" placeholder="Appearance, class, background...">'+esc(ch.details)+'</textarea></div><div class="field"><label class="field-label">Current Situation</label><textarea class="field-input field-textarea" oninput="camp().characters['+ci+'].situation=this.value;saveState()" placeholder="Conditions, morale, recent events...">'+esc(ch.situation)+'</textarea></div><div class="box-title mt-md">Traits</div>';ch.traits.forEach(function(t,ti){html+='<div class="trait-row"><button class="trait-status" data-status="'+t.status+'" title="'+TRAIT_STATUS_NAMES[t.status]+'" onclick="cycleTrait('+ci+","+ti+')">'+TRAIT_STATUS_LABELS[t.status]+'</button><input class="trait-input" value="'+esc(t.text)+'" oninput="camp().characters['+ci+'].traits['+ti+'].text=this.value;saveState()" placeholder="Trait snippet..."><input class="trait-cat" value="'+esc(t.category)+'" maxlength="3" oninput="camp().characters['+ci+'].traits['+ti+'].category=this.value.toUpperCase().slice(0,3);this.value=camp().characters['+ci+'].traits['+ti+'].category;saveState()" placeholder="CL"><button class="trait-remove" onclick="camp().characters['+ci+'].traits.splice('+ti+',1);renderCharacters();saveState()">\u2715</button></div>'});html+='<div class="flex-between mt-sm"><button class="btn-link" onclick="camp().characters['+ci+'].traits.push({text:\'\',category:\'\',status:\'empty\'});renderCharacters();saveState()">+ Trait</button><button class="btn-link-danger" onclick="removeChar('+ci+')">Remove Character</button></div></div>'}html+="</div>";return html}).join("")}
+function toggleChar(id){ui.expandedChar=ui.expandedChar===id?null:id;renderCharacters()}
+function addCharacter(){camp().characters.push({id:Date.now(),name:"",details:"",situation:"",traits:[{text:"",category:"CL",status:"empty"}]});renderCharacters();saveState()}
+function removeChar(ci){var id=camp().characters[ci].id;camp().characters.splice(ci,1);if(ui.expandedChar===id)ui.expandedChar=null;renderCharacters();saveState()}
+function addPartyTrait(){camp().partyTraits.push("");renderCharacters();saveState()}
+function cycleTrait(ci,ti){var t=camp().characters[ci].traits[ti];t.status=TRAIT_STATUSES[(TRAIT_STATUSES.indexOf(t.status)+1)%TRAIT_STATUSES.length];renderCharacters();saveState()}
+function refreshCharSelects(){var chars=camp().characters;var opts='<option value="">Select a character...</option>'+chars.map(function(c){return'<option value="'+c.id+'">'+esc(c.name||"Unnamed")+"</option>"}).join("");document.getElementById("gp-char-select").innerHTML=opts;["ga-1-who","ga-2-who","ga-3-who"].forEach(function(id){document.getElementById(id).innerHTML='<option value="">Who?</option>'+chars.map(function(c){return'<option value="'+c.id+'">'+esc(c.name||"Unnamed")+"</option>"}).join("")})}
+function getCharName(id){var c=camp().characters.find(function(x){return x.id==id});return c?(c.name||"Unnamed"):"Unknown"}
+function doTripleOCheck(){var obvious=document.getElementById("gp-obvious").value,option=document.getElementById("gp-option").value,odd=document.getElementById("gp-odd").value,question=document.getElementById("gp-question").value,charId=document.getElementById("gp-char-select").value,dd=document.getElementById("gp-doubledown").checked,checks=document.getElementById("checks-mode").checked,sub=ui.currentSub,charName=getCharName(charId),container=document.getElementById("gp-result");if(!obvious)return;if(dd){var d1=rollD6(),d2=rollD6(),doubles=d1===d2;container.innerHTML='<div class="result-box"><div style="display:flex;justify-content:center;gap:10px;margin-bottom:10px"><span class="result-dice">'+d1+'</span><span class="result-dice">'+d2+'</span></div><div class="result-pick">Pick your favorite: ['+d1+"] = "+tripleOResult(d1)+" or ["+d2+"] = "+tripleOResult(d2)+"</div>"+(doubles?'<div class="result-doubles">\u2605 DOUBLES! \u2605</div>':'')+'<div class="result-context">'+(obvious?"Obvious: "+esc(obvious):"")+(option?" \xb7 Option: "+esc(option):"")+(odd?" \xb7 Odd: "+esc(odd):"")+"</div></div>";addJournal({type:"Triple-O "+(checks?"Check (Resolution)":"Check")+" \u2014 Double-Down",character:charName,question:sub==="questions"?question:null,detail:"Rolled 2d6: ["+d1+"] ["+d2+"]"+(doubles?" \u2014 DOUBLES!":""),obvious:obvious,option:option,odd:odd,note:doubles?"Doubles rolled! Consider promoting a trait or adding a new one.":null})}else{var d=rollD6(),outcome=tripleOResult(d);container.innerHTML='<div class="result-box"><div style="display:flex;justify-content:center;margin-bottom:10px"><span class="result-dice">'+d+'</span></div><div class="result-outcome">'+outcome+'</div><div class="result-context">'+(obvious?"Obvious: "+esc(obvious):"")+(option?" \xb7 Option: "+esc(option):"")+(odd?" \xb7 Odd: "+esc(odd):"")+"</div></div>";addJournal({type:"Triple-O "+(checks?"Check (Resolution)":"Check"),character:charName,question:sub==="questions"?question:null,detail:"Rolled 1d6: ["+d+"] \u2192 "+outcome,obvious:obvious,option:option,odd:odd})}}
+function doGroupRoll(){var texts=[document.getElementById("ga-1-text").value,document.getElementById("ga-2-text").value,document.getElementById("ga-3-text").value];if(!texts[0])return;var mode=document.querySelector('input[name="ga-mode"]:checked').value,dd=document.getElementById("ga-doubledown").checked;var obvious=texts[0],option=texts[1],odd=texts[2],container=document.getElementById("gp-result");if(mode==="roll"){var rolls=texts.map(function(t,i){return{text:t,roll:rollD6(),idx:i}});rolls.sort(function(a,b){return b.roll-a.roll});obvious=rolls[0].text;option=rolls[1].text;odd=rolls[2].text;addJournal({type:"Group Action \u2014 Ranking Roll",detail:rolls.map(function(r){return'"'+(r.text||"(blank)")+'" rolled ['+r.roll+"]"}).join(", "),obvious:obvious,option:option,odd:odd})}if(dd){var d1=rollD6(),d2=rollD6(),doubles=d1===d2;container.innerHTML='<div class="result-box"><div style="display:flex;justify-content:center;gap:10px;margin-bottom:10px"><span class="result-dice">'+d1+'</span><span class="result-dice">'+d2+'</span></div><div class="result-pick">Pick your favorite: ['+d1+"] = "+tripleOResult(d1)+" or ["+d2+"] = "+tripleOResult(d2)+"</div>"+(doubles?'<div class="result-doubles">\u2605 DOUBLES! Consider a Party Trait. \u2605</div>':'')+'<div class="result-context">'+(obvious?"Obvious: "+esc(obvious):"")+(option?" \xb7 Option: "+esc(option):"")+(odd?" \xb7 Odd: "+esc(odd):"")+"</div></div>";addJournal({type:"Triple-O Check \u2014 Group Action (Double-Down)",detail:"Rolled 2d6: ["+d1+"] ["+d2+"]"+(doubles?" \u2014 DOUBLES!":""),obvious:obvious,option:option,odd:odd,note:doubles?"Doubles! Consider adding a Party Trait.":null})}else{var d=rollD6(),outcome=tripleOResult(d);container.innerHTML='<div class="result-box"><div style="display:flex;justify-content:center;margin-bottom:10px"><span class="result-dice">'+d+'</span></div><div class="result-outcome">'+outcome+'</div><div class="result-context">'+(obvious?"Obvious: "+esc(obvious):"")+(option?" \xb7 Option: "+esc(option):"")+(odd?" \xb7 Odd: "+esc(odd):"")+"</div></div>";addJournal({type:"Triple-O Check \u2014 Group Action",detail:"Rolled 1d6: ["+d+"] \u2192 "+outcome,obvious:obvious,option:option,odd:odd})}}
+function switchTableType(type){ui.currentTableType=type;ui.comboSelected=[];document.querySelectorAll("[data-ttype]").forEach(function(b){b.classList.toggle("active",b.dataset.ttype===type)});renderTableTab()}
+function renderTableTab(){var tables=ui.currentTableType==="spark"?SPARK_TABLES:SPECIFIC_TABLES;var names=Object.keys(tables);document.getElementById("combo-pills").innerHTML=names.map(function(n){return'<button class="combo-pill '+(ui.comboSelected.includes(n)?"selected":"")+'" onclick="toggleCombo(\''+n+"')\">"+n+"</button>"}).join("");var btn=document.getElementById("combo-roll-btn");btn.disabled=ui.comboSelected.length===0;btn.textContent="Roll "+(ui.comboSelected.length>1?"Combo ":"")+"("+(ui.comboSelected.length||"\u2014")+")";document.getElementById("table-grid").innerHTML=names.map(function(n){return'<button class="table-grid-btn" onclick="rollSingle(\''+n+"')\">"+n+"</button>"}).join("")}
+function toggleCombo(name){var i=ui.comboSelected.indexOf(name);if(i>=0)ui.comboSelected.splice(i,1);else if(ui.comboSelected.length<3)ui.comboSelected.push(name);renderTableTab()}
+function rollCombo(){if(!ui.comboSelected.length)return;var tables=ui.currentTableType==="spark"?SPARK_TABLES:SPECIFIC_TABLES;var results=ui.comboSelected.map(function(name){var r=rollD66();return{table:name,d66:r.display,result:tables[name][r.key]||"Reroll"}});showTableResults(results);addJournal({type:results.length>1?"Combo Table Roll":"Table Roll",detail:results.map(function(r){return r.table+": ["+r.d66+"] \u2192 "+r.result}).join(" + ")})}
+function rollSingle(name){var tables=ui.currentTableType==="spark"?SPARK_TABLES:SPECIFIC_TABLES;var r=rollD66(),result=tables[name][r.key]||"Reroll";ui.comboSelected=[name];renderTableTab();showTableResults([{table:name,d66:r.display,result:result}]);addJournal({type:"Table Roll",detail:name+": ["+r.d66+"] \u2192 "+result})}
+function showTableResults(results){document.getElementById("table-results").innerHTML='<div class="result-box" style="text-align:left;margin-top:0;margin-bottom:16px">'+results.map(function(r){return'<div class="table-result-row"><span class="result-dice" style="width:44px;height:44px;font-size:20px;flex-shrink:0">'+r.d66+'</span><div><div class="table-result-name">'+r.table+'</div><div class="table-result-val">'+esc(r.result)+"</div></div></div>"}).join("")+"</div>"}
+function addJournal(entry){entry.id=nextId();entry.time=ts();camp().journal.push(entry);saveState();document.querySelector('[data-tab="journal"]').textContent="Journal ("+camp().journal.length+")"}
+function renderJournal(){var j=camp().journal,list=document.getElementById("journal-list");document.getElementById("journal-count").textContent=j.length+" entries";if(!j.length){list.innerHTML='<div class="journal-empty">No entries yet. Roll some dice!</div>';return}list.innerHTML=j.map(function(e){return'<div class="journal-entry"><div class="journal-header"><span class="journal-type">'+esc(e.type)+'</span><span class="journal-time">'+e.time+"</span></div>"+(e.character?'<div class="journal-char">Character: '+esc(e.character)+"</div>":"")+(e.question?'<div class="journal-question">"'+esc(e.question)+'"</div>':'')+'<div class="journal-detail">'+esc(e.detail)+"</div>"+(e.obvious?'<div class="journal-ooo">Obvious: '+esc(e.obvious)+(e.option?" \xb7 Option: "+esc(e.option):"")+(e.odd?" \xb7 Odd: "+esc(e.odd):"")+"</div>":"")+(e.note?'<div class="journal-note">\u2605 '+esc(e.note)+"</div>":"")+"</div>"}).join("");list.lastElementChild&&list.lastElementChild.scrollIntoView({behavior:"smooth"})}
+function clearJournal(){if(!confirm("Clear all journal entries for this campaign?"))return;camp().journal=[];camp().entryId=0;saveState();renderJournal();document.querySelector('[data-tab="journal"]').textContent="Journal"}
+function renderAll(){document.getElementById("header-campaign").textContent=camp().name;renderCharacters();renderTableTab();var jLen=camp().journal.length;document.querySelector('[data-tab="journal"]').textContent=jLen?"Journal ("+jLen+")":"Journal"}
+loadState();renderAll();
 </script>
 </body>
 </html>
